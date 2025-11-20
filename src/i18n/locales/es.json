@@ -1,0 +1,222 @@
+{
+  "welcome": "Bienvenido a Note Express",
+  "common": {
+    "emptyMessage": "Sin elementos",
+    "cancel": "Cancelar",
+    "delete": "Eliminar"
+  },
+  "footer": {
+    "button": {
+      "tags": {
+        "label": "Lista de Etiquetas",
+        "tooltip": "Gestión de Etiquetas"
+      }
+    }
+  },
+  "home": {
+    "message": {
+      "allDone": "¡Todo completado!",
+      "deleteAll": {
+        "description": "¿Eliminar todas las tareas completadas?",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "notFound": "No se encontraron tareas."
+    },
+    "header": {
+      "title": "Lista de Tareas",
+      "searchLabel": "Buscar una tarea...",
+      "button": {
+        "addTask": {
+          "label": "Nueva Tarea"
+        },
+        "filter": {
+          "label": "Filtrar por etiqueta",
+          "emptyMessage": "Sin resultados"
+        }
+      }
+    },
+    "button": {
+      "deleteAllDone": {
+        "label": "Eliminar Tareas Completadas",
+        "tooltip": "Eliminar Tareas Completadas"
+      }
+    },
+    "modal": {
+      "createTask": {
+        "title": "Nueva Tarea",
+        "form": {
+          "placeholder": {
+            "title": "Título",
+            "description": "Descripción",
+            "selectTags": "Seleccionar etiquetas"
+          },
+          "button": {
+            "submit": "Enviar"
+          }
+        }
+      },
+      "updateTask": {
+        "title": "Editar"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error al cargar las etiquetas."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Éxito",
+          "message": "Las tareas se han eliminado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la eliminación."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Éxito",
+          "message": "La tarea se ha eliminado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la eliminación."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Éxito",
+          "message": "La tarea se ha creado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la creación."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Éxito",
+          "message": "La tarea se ha actualizado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la actualización."
+        }
+      }
+    }
+  },
+  "tags": {
+    "menu": {
+      "edit": {
+        "label": "Editar"
+      },
+      "delete": {
+        "label": "Eliminar"
+      }
+    },
+    "header": {
+      "title": "Lista de Etiquetas",
+      "searchLabel": "Buscar una etiqueta...",
+      "button": {
+        "addTask": {
+          "label": "Nueva Etiqueta"
+        }
+      }
+    },
+    "modal": {
+      "createTag": {
+        "title": "Nueva Etiqueta",
+        "form": {
+          "placeholder": {
+            "title": "Nombre",
+            "color": "Color"
+          },
+          "button": {
+            "submit": "Enviar"
+          }
+        }
+      },
+      "updateTag": {
+        "title": "Editar"
+      },
+      "confirmDelete": {
+        "title": "Confirmación",
+        "content": "¿Eliminar {nb} etiquetas?"
+      }
+    },
+    "table": {
+      "name": {
+        "head": "Nombre",
+        "row": "{nb} tareas"
+      },
+      "emptyState": {
+        "message": "No hay etiquetas."
+      }
+    },
+    "floatingBar": {
+      "button": {
+        "label": "Eliminar {nb} etiquetas seleccionadas",
+        "ariaLabel": "Eliminar etiquetas seleccionadas"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error al cargar las etiquetas."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Éxito",
+          "message": "Las etiquetas se han eliminado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la eliminación."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Éxito",
+          "message": "La etiqueta se ha eliminado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la eliminación."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Éxito",
+          "message": "La etiqueta se ha creado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la creación."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Éxito",
+          "message": "La etiqueta se ha actualizado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un error durante la actualización."
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "locale": {
+      "placeholder": "Idioma",
+      "label": "Idioma"
+    }
+  }
+}

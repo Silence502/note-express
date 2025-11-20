@@ -1,0 +1,222 @@
+{
+  "welcome": "Welcome to Note Express",
+  "common": {
+    "emptyMessage": "No items",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+  "footer": {
+    "button": {
+      "tags": {
+        "label": "Tag List",
+        "tooltip": "Tag Management"
+      }
+    }
+  },
+  "home": {
+    "message": {
+      "allDone": "All done!",
+      "deleteAll": {
+        "description": "Delete all completed tasks?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "notFound": "No tasks found."
+    },
+    "header": {
+      "title": "Task List",
+      "searchLabel": "Search for a task...",
+      "button": {
+        "addTask": {
+          "label": "New Task"
+        },
+        "filter": {
+          "label": "Filter by tag",
+          "emptyMessage": "No results"
+        }
+      }
+    },
+    "button": {
+      "deleteAllDone": {
+        "label": "Delete Completed Tasks",
+        "tooltip": "Delete Completed Tasks"
+      }
+    },
+    "modal": {
+      "createTask": {
+        "title": "New Task",
+        "form": {
+          "placeholder": {
+            "title": "Title",
+            "description": "Description",
+            "selectTags": "Select tags"
+          },
+          "button": {
+            "submit": "Submit"
+          }
+        }
+      },
+      "updateTask": {
+        "title": "Edit"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Error",
+          "message": "An error occurred while loading tags."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Success",
+          "message": "Tasks have been successfully deleted."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during deletion."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Success",
+          "message": "Task has been successfully deleted."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during deletion."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Success",
+          "message": "Task has been successfully created."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during creation."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Success",
+          "message": "Task has been successfully updated."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during update."
+        }
+      }
+    }
+  },
+  "tags": {
+    "menu": {
+      "edit": {
+        "label": "Edit"
+      },
+      "delete": {
+        "label": "Delete"
+      }
+    },
+    "header": {
+      "title": "Tag List",
+      "searchLabel": "Search for a tag...",
+      "button": {
+        "addTask": {
+          "label": "New Tag"
+        }
+      }
+    },
+    "modal": {
+      "createTag": {
+        "title": "New Tag",
+        "form": {
+          "placeholder": {
+            "title": "Name",
+            "color": "Color"
+          },
+          "button": {
+            "submit": "Submit"
+          }
+        }
+      },
+      "updateTag": {
+        "title": "Edit"
+      },
+      "confirmDelete": {
+        "title": "Confirmation",
+        "content": "Delete {nb} tags?"
+      }
+    },
+    "table": {
+      "name": {
+        "head": "Name",
+        "row": "{nb} tasks"
+      },
+      "emptyState": {
+        "message": "No tags."
+      }
+    },
+    "floatingBar": {
+      "button": {
+        "label": "Delete {nb} selected tags",
+        "ariaLabel": "Delete selected tags"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Error",
+          "message": "An error occurred while loading tags."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Success",
+          "message": "Tags have been successfully deleted."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during deletion."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Success",
+          "message": "Tag has been successfully deleted."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during deletion."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Success",
+          "message": "Tag has been successfully created."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during creation."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Success",
+          "message": "Tag has been successfully updated."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during update."
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "locale": {
+      "placeholder": "Language",
+      "label": "Language"
+    }
+  }
+}

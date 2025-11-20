@@ -1,0 +1,222 @@
+{
+  "welcome": "Note Expressへようこそ",
+  "common": {
+    "emptyMessage": "項目がありません",
+    "cancel": "キャンセル",
+    "delete": "削除"
+  },
+  "footer": {
+    "button": {
+      "tags": {
+        "label": "タグ一覧",
+        "tooltip": "タグ管理"
+      }
+    }
+  },
+  "home": {
+    "message": {
+      "allDone": "すべて完了！",
+      "deleteAll": {
+        "description": "完了したタスクをすべて削除しますか？",
+        "yes": "はい",
+        "no": "いいえ"
+      },
+      "notFound": "タスクが見つかりませんでした。"
+    },
+    "header": {
+      "title": "タスク一覧",
+      "searchLabel": "タスクを検索...",
+      "button": {
+        "addTask": {
+          "label": "新規タスク"
+        },
+        "filter": {
+          "label": "タグでフィルター",
+          "emptyMessage": "結果がありません"
+        }
+      }
+    },
+    "button": {
+      "deleteAllDone": {
+        "label": "完了したタスクを削除",
+        "tooltip": "完了したタスクを削除"
+      }
+    },
+    "modal": {
+      "createTask": {
+        "title": "新規タスク",
+        "form": {
+          "placeholder": {
+            "title": "タイトル",
+            "description": "説明",
+            "selectTags": "タグを選択"
+          },
+          "button": {
+            "submit": "送信"
+          }
+        }
+      },
+      "updateTask": {
+        "title": "編集"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "エラー",
+          "message": "タグの読み込み中にエラーが発生しました。"
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "成功",
+          "message": "タスクを正常に削除しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "削除中にエラーが発生しました。"
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "成功",
+          "message": "タスクを正常に削除しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "削除中にエラーが発生しました。"
+        }
+      },
+      "create": {
+        "success": {
+          "title": "成功",
+          "message": "タスクを正常に作成しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "作成中にエラーが発生しました。"
+        }
+      },
+      "update": {
+        "success": {
+          "title": "成功",
+          "message": "タスクを正常に更新しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "更新中にエラーが発生しました。"
+        }
+      }
+    }
+  },
+  "tags": {
+    "menu": {
+      "edit": {
+        "label": "編集"
+      },
+      "delete": {
+        "label": "削除"
+      }
+    },
+    "header": {
+      "title": "タグ一覧",
+      "searchLabel": "タグを検索...",
+      "button": {
+        "addTask": {
+          "label": "新規タグ"
+        }
+      }
+    },
+    "modal": {
+      "createTag": {
+        "title": "新規タグ",
+        "form": {
+          "placeholder": {
+            "title": "名前",
+            "color": "色"
+          },
+          "button": {
+            "submit": "送信"
+          }
+        }
+      },
+      "updateTag": {
+        "title": "編集"
+      },
+      "confirmDelete": {
+        "title": "確認",
+        "content": "{nb}個のタグを削除しますか？"
+      }
+    },
+    "table": {
+      "name": {
+        "head": "名前",
+        "row": "{nb}タスク"
+      },
+      "emptyState": {
+        "message": "タグがありません"
+      }
+    },
+    "floatingBar": {
+      "button": {
+        "label": "選択した{nb}個のタグを削除",
+        "ariaLabel": "選択したタグを削除"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "エラー",
+          "message": "タグの読み込み中にエラーが発生しました。"
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "成功",
+          "message": "タグを正常に削除しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "削除中にエラーが発生しました。"
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "成功",
+          "message": "タグを正常に削除しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "削除中にエラーが発生しました。"
+        }
+      },
+      "create": {
+        "success": {
+          "title": "成功",
+          "message": "タグを正常に作成しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "作成中にエラーが発生しました。"
+        }
+      },
+      "update": {
+        "success": {
+          "title": "成功",
+          "message": "タグを正常に更新しました。"
+        },
+        "error": {
+          "title": "エラー",
+          "message": "更新中にエラーが発生しました。"
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "設定",
+    "locale": {
+      "placeholder": "言語",
+      "label": "言語"
+    }
+  }
+}

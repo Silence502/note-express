@@ -1,0 +1,222 @@
+{
+  "welcome": "Willkommen bei Note Express",
+  "common": {
+    "emptyMessage": "Keine Elemente",
+    "cancel": "Abbrechen",
+    "delete": "Löschen"
+  },
+  "footer": {
+    "button": {
+      "tags": {
+        "label": "Tag-Liste",
+        "tooltip": "Tag-Verwaltung"
+      }
+    }
+  },
+  "home": {
+    "message": {
+      "allDone": "Alles erledigt!",
+      "deleteAll": {
+        "description": "Alle erledigten Aufgaben löschen?",
+        "yes": "Ja",
+        "no": "Nein"
+      },
+      "notFound": "Keine Aufgaben gefunden."
+    },
+    "header": {
+      "title": "Aufgabenliste",
+      "searchLabel": "Nach einer Aufgabe suchen...",
+      "button": {
+        "addTask": {
+          "label": "Neue Aufgabe"
+        },
+        "filter": {
+          "label": "Nach Tag filtern",
+          "emptyMessage": "Keine Ergebnisse"
+        }
+      }
+    },
+    "button": {
+      "deleteAllDone": {
+        "label": "Erledigte Aufgaben löschen",
+        "tooltip": "Erledigte Aufgaben löschen"
+      }
+    },
+    "modal": {
+      "createTask": {
+        "title": "Neue Aufgabe",
+        "form": {
+          "placeholder": {
+            "title": "Titel",
+            "description": "Beschreibung",
+            "selectTags": "Tags auswählen"
+          },
+          "button": {
+            "submit": "Absenden"
+          }
+        }
+      },
+      "updateTask": {
+        "title": "Bearbeiten"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Laden der Tags ist ein Fehler aufgetreten."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Aufgaben wurden erfolgreich gelöscht."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Löschen ist ein Fehler aufgetreten."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Aufgabe wurde erfolgreich gelöscht."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Löschen ist ein Fehler aufgetreten."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Aufgabe wurde erfolgreich erstellt."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Erstellen ist ein Fehler aufgetreten."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Aufgabe wurde erfolgreich aktualisiert."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Aktualisieren ist ein Fehler aufgetreten."
+        }
+      }
+    }
+  },
+  "tags": {
+    "menu": {
+      "edit": {
+        "label": "Bearbeiten"
+      },
+      "delete": {
+        "label": "Löschen"
+      }
+    },
+    "header": {
+      "title": "Tag-Liste",
+      "searchLabel": "Nach einem Tag suchen...",
+      "button": {
+        "addTask": {
+          "label": "Neuer Tag"
+        }
+      }
+    },
+    "modal": {
+      "createTag": {
+        "title": "Neuer Tag",
+        "form": {
+          "placeholder": {
+            "title": "Name",
+            "color": "Farbe"
+          },
+          "button": {
+            "submit": "Absenden"
+          }
+        }
+      },
+      "updateTag": {
+        "title": "Bearbeiten"
+      },
+      "confirmDelete": {
+        "title": "Bestätigung",
+        "content": "{nb} Tags löschen?"
+      }
+    },
+    "table": {
+      "name": {
+        "head": "Name",
+        "row": "{nb} Aufgaben"
+      },
+      "emptyState": {
+        "message": "Keine Tags."
+      }
+    },
+    "floatingBar": {
+      "button": {
+        "label": "{nb} ausgewählte Tags löschen",
+        "ariaLabel": "Ausgewählte Tags löschen"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Laden der Tags ist ein Fehler aufgetreten."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Tags wurden erfolgreich gelöscht."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Löschen ist ein Fehler aufgetreten."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Tag wurde erfolgreich gelöscht."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Löschen ist ein Fehler aufgetreten."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Tag wurde erfolgreich erstellt."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Erstellen ist ein Fehler aufgetreten."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Tag wurde erfolgreich aktualisiert."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Aktualisieren ist ein Fehler aufgetreten."
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "locale": {
+      "placeholder": "Sprache",
+      "label": "Sprache"
+    }
+  }
+}

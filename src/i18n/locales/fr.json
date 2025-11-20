@@ -1,0 +1,232 @@
+{
+  "welcome": "Bienvenue sur Note Express",
+  "version": "0.0.261120a",
+  "common": {
+    "emptyMessage": "Aucun élément",
+    "cancel": "Annuler",
+    "delete": "Supprimer"
+  },
+  "footer": {
+    "button": {
+      "tags": {
+        "label": "List des tags",
+        "tooltip": "Gestion des tags"
+      }
+    }
+  },
+  "home": {
+    "message": {
+      "allDone": "Tout est terminé !",
+      "deleteAll": {
+        "description": "Supprimer toutes les tâches terminées ?",
+        "yes": "Oui",
+        "no": "Non"
+      },
+      "notFound": "Aucune tâche trouvé."
+    },
+    "header": {
+      "title": "Liste des tâches",
+      "searchLabel": "Rechercher une tâche...",
+      "button": {
+        "addTask": {
+          "label": "Nouvelle tâche"
+        },
+        "filter": {
+          "label": "Filtrer par tag",
+          "emptyMessage": "Pas de résultat"
+        }
+      }
+    },
+    "button": {
+      "deleteAllDone": {
+        "label": "Supprimer les tâches terminées",
+        "tooltip": "Supprimer les tâches terminées"
+      }
+    },
+    "modal": {
+      "createTask": {
+        "title": "Nouvelle tâche",
+        "form": {
+          "placeholder": {
+            "title": "Titre",
+            "description": "Description",
+            "selectTags": "Sélectionnez des tags"
+          },
+          "button": {
+            "submit": "Valider"
+          }
+        }
+      },
+      "updateTask": {
+        "title": "Modifier"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors du chargeùent des tags."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Succès",
+          "message": "Les tâches ont bien été supprimées."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la suppression."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Succès",
+          "message": "La tâche a bien été supprimée."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la suppression."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Succès",
+          "message": "La tâche a bien été crée."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la création."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Succès",
+          "message": "La tâche a bien été mise à jour."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la mise à jour."
+        }
+      }
+    }
+  },
+  "tags": {
+    "menu": {
+      "edit": {
+        "label": "Éditer"
+      },
+      "delete": {
+        "label": "Supprimer"
+      }
+    },
+    "header": {
+      "title": "Liste des tags",
+      "searchLabel": "Rechercher un tag...",
+      "button": {
+        "addTask": {
+          "label": "Nouveau tag"
+        }
+      }
+    },
+    "modal": {
+      "createTag": {
+        "title": "Nouveau tag",
+        "form": {
+          "placeholder": {
+            "title": "Nom",
+            "color": "Couleur"
+          },
+          "button": {
+            "submit": "Valider"
+          }
+        }
+      },
+      "updateTag": {
+        "title": "Modifier"
+      },
+      "confirmDelete": {
+        "title": "Confirmation",
+        "content": "Supprimer les {nb} tags ?"
+      }
+    },
+    "table": {
+      "name": {
+        "head": "Nom",
+        "row": "{nb} tâches"
+      },
+      "emptyState": {
+        "message": "Pas de tag."
+      }
+    },
+    "floatingBar": {
+      "button": {
+        "label": "Supprimer les {nb} tags sélectionnés",
+        "ariaLabel": "Supprimer les tags sélectionnés"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors du chargeùent des tags."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Succès",
+          "message": "Les tags ont bien été supprimés."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la suppression."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Succès",
+          "message": "Le tag a bien été supprimé."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la suppression."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Succès",
+          "message": "Le tag a bien été crée."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la création."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Succès",
+          "message": "Le tag a bien été mis à jour."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenu lors de la mise à jour."
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "locale": {
+      "placeholder": "Langue",
+      "label": "Langue"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "Journal des modifications",
+      "subtitle": "Version 0.0.261120a"
+    },
+    "content": {
+
+    }
+  }
+}

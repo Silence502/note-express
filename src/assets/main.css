@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("./_root.css");
+@import url("./_vars.css");
+@import "tailwindcss";
+
+/*@custom-variant dark (&:where(.dark, .dark *));*/
+
+@theme {
+    --color-background-primary: var(--p-surface-0);
+    --color-background-danger-light: var(--p-red-800);
+    --color-content-secondary: var(--p-neutral-700);
+}
+
+@layer theme {
+    .dark {
+        --color-background-primary: var(--p-surface-950);
+        --color-background-danger-light: var(--p-red-300);
+        --color-content-secondary: var(--p-neutral-500);
+    }
+}
+
+body {
+    background-color: var(--color-background-primary);
+    font-family: 'Jost', sans-serif;
+    /*color: var(--el-text-color-primary);*/
+    /*font-size: var(--font-size-sm);*/
+    /*line-height: var(--font-line-height-sm);*/
+
+    h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    h3 {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    p, a, li, span, div, label, textarea[placeholder], input[placeholder] {
+        font-size: 14px;
+    }
+
+    a {
+        word-break: break-word;
+        text-decoration: underline;
+        color: var(--p-primary-color);
+
+        &:hover {
+            color: var(--p-primary-hover-color);
+        }
+    }
+}
+
+@layer components {
+    section.section-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 8px 68px 8px;
+    }
+
+    .drag-over {
+        opacity: 0.5;
+        transform: translateY(10px);
+        z-index: 1000;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .img-all-done {
+        content: var(--coffee-icon);
+        width: 50px;
+        height: auto;
+    }
+
+    header.header-component {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background-color: var(--p-content-background);
+        border-bottom: 1px solid var(--p-content-border-color);
+    }
+
+    footer.footer-component {
+        position: fixed;
+        z-index: 100;
+        height: 60px;
+        min-height: 32px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 8px;
+        border-top: 1px solid var(--p-content-border-color);
+        background-color: var(--p-content-background);
+    }
+}
