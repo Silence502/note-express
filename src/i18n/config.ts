@@ -5,8 +5,9 @@ import kr from './locales/kr.json';
 import de from './locales/de.json';
 import jp from './locales/jp.json';
 import es from './locales/es.json';
+import it from './locales/it.json';
 
-const supportedLanguages = ['en', 'fr', 'de', 'jp', 'es', 'kr'];
+const supportedLanguages = ['en', 'fr', 'de', 'it', 'jp', 'es', 'kr'];
 
 export function detectUserLanguage(): string {
     if (!localStorage.getItem('ne_language')) {
@@ -24,11 +25,12 @@ const userLanguage = detectUserLanguage();
 export const i18n = createI18n({
     legacy: false,
     locale: userLanguage,
-    fallbackLocale: 'fr',
+    fallbackLocale: 'en',
     messages: {
         en,
         fr,
         de,
+        it,
         jp,
         es,
         kr

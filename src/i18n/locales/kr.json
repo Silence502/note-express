@@ -15,7 +15,7 @@
   },
   "home": {
     "message": {
-      "allDone": "모두 완료!",
+      "allDone": "모두 완료되었습니다!",
       "deleteAll": {
         "description": "완료된 모든 작업을 삭제하시겠습니까?",
         "yes": "예",
@@ -31,7 +31,7 @@
           "label": "새 작업"
         },
         "filter": {
-          "label": "태그로 필터링",
+          "label": "태그별 필터",
           "emptyMessage": "결과 없음"
         }
       }
@@ -52,19 +52,19 @@
             "selectTags": "태그 선택"
           },
           "button": {
-            "submit": "제출"
+            "submit": "확인"
           }
         }
       },
       "updateTask": {
-        "title": "편집"
+        "title": "수정"
       }
     },
     "toast": {
       "loading": {
         "error": {
           "title": "오류",
-          "message": "태그를 불러오는 중 오류가 발생했습니다."
+          "message": "태그를 불러오는 중 문제가 발생했습니다."
         }
       },
       "deleteAll": {
@@ -74,7 +74,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "삭제 중 오류가 발생했습니다."
+          "message": "삭제 중 문제가 발생했습니다."
         }
       },
       "delete": {
@@ -84,7 +84,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "삭제 중 오류가 발생했습니다."
+          "message": "삭제 중 문제가 발생했습니다."
         }
       },
       "create": {
@@ -94,7 +94,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "생성 중 오류가 발생했습니다."
+          "message": "생성 중 문제가 발생했습니다."
         }
       },
       "update": {
@@ -104,7 +104,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "업데이트 중 오류가 발생했습니다."
+          "message": "업데이트 중 문제가 발생했습니다."
         }
       }
     }
@@ -136,38 +136,38 @@
             "color": "색상"
           },
           "button": {
-            "submit": "제출"
+            "submit": "확인"
           }
         }
       },
       "updateTag": {
-        "title": "편집"
+        "title": "수정"
       },
       "confirmDelete": {
         "title": "확인",
-        "content": "태그 {nb}개를 삭제하시겠습니까?"
+        "content": "{nb}개의 태그를 삭제하시겠습니까?"
       }
     },
     "table": {
       "name": {
         "head": "이름",
-        "row": "작업 {nb}개"
+        "row": "{nb}개의 작업"
       },
       "emptyState": {
-        "message": "태그가 없습니다."
+        "message": "태그 없음."
       }
     },
     "floatingBar": {
       "button": {
-        "label": "선택한 태그 {nb}개 삭제",
-        "ariaLabel": "선택한 태그 삭제"
+        "label": "선택된 {nb}개 태그 삭제",
+        "ariaLabel": "선택된 태그 삭제"
       }
     },
     "toast": {
       "loading": {
         "error": {
           "title": "오류",
-          "message": "태그를 불러오는 중 오류가 발생했습니다."
+          "message": "태그를 불러오는 중 문제가 발생했습니다."
         }
       },
       "deleteAll": {
@@ -177,7 +177,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "삭제 중 오류가 발생했습니다."
+          "message": "삭제 중 문제가 발생했습니다."
         }
       },
       "delete": {
@@ -187,7 +187,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "삭제 중 오류가 발생했습니다."
+          "message": "삭제 중 문제가 발생했습니다."
         }
       },
       "create": {
@@ -197,7 +197,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "생성 중 오류가 발생했습니다."
+          "message": "생성 중 문제가 발생했습니다."
         }
       },
       "update": {
@@ -207,7 +207,7 @@
         },
         "error": {
           "title": "오류",
-          "message": "업데이트 중 오류가 발생했습니다."
+          "message": "업데이트 중 문제가 발생했습니다."
         }
       }
     }
@@ -217,6 +217,29 @@
     "locale": {
       "placeholder": "언어",
       "label": "언어"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "변경 로그",
+      "subtitle": "버전 {value}"
+    },
+    "content": {
+      "note1": {
+        "type": "개선",
+        "tagType": "info",
+        "note": "작업 목록: 페이지 변경 시 필터가 메모리에 저장됩니다."
+      },
+      "note2": {
+        "type": "개선",
+        "tagType": "info",
+        "note": "작업 카드: 외부 링크 입력 또는 붙여넣기 시 텍스트가 클릭 가능한 링크로 변환됩니다."
+      },
+      "note3": {
+        "type": "새로운 기능",
+        "tagType": "success",
+        "note": "변경 로그 페이지가 이제 공개되었습니다. 설정 패널에서 버전 번호를 통해 접근할 수 있습니다."
+      }
     }
   }
 }

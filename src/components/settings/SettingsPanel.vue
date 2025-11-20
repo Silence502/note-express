@@ -14,9 +14,10 @@ const locales = ref([
   {name: 'FR', code: 'fr'},
   {name: 'EN', code: 'en'},
   {name: 'ES', code: 'es'},
-  {name: 'DE', code: 'de'}
-  // {name: 'KR', code: 'kr'},
-  // {name: 'JP', code: 'jp'},
+  {name: 'IT', code: 'it'},
+  {name: 'DE', code: 'de'},
+  {name: 'KR', code: 'kr'},
+  {name: 'JP', code: 'jp'},
 ]);
 
 function changeLocale(newLocale: string): void {

@@ -8,8 +8,8 @@
   "footer": {
     "button": {
       "tags": {
-        "label": "Tag List",
-        "tooltip": "Tag Management"
+        "label": "Tags list",
+        "tooltip": "Tags management"
       }
     }
   },
@@ -24,11 +24,11 @@
       "notFound": "No tasks found."
     },
     "header": {
-      "title": "Task List",
+      "title": "Task list",
       "searchLabel": "Search for a task...",
       "button": {
         "addTask": {
-          "label": "New Task"
+          "label": "New task"
         },
         "filter": {
           "label": "Filter by tag",
@@ -38,13 +38,13 @@
     },
     "button": {
       "deleteAllDone": {
-        "label": "Delete Completed Tasks",
-        "tooltip": "Delete Completed Tasks"
+        "label": "Delete completed tasks",
+        "tooltip": "Delete completed tasks"
       }
     },
     "modal": {
       "createTask": {
-        "title": "New Task",
+        "title": "New task",
         "form": {
           "placeholder": {
             "title": "Title",
@@ -119,17 +119,17 @@
       }
     },
     "header": {
-      "title": "Tag List",
+      "title": "Tags list",
       "searchLabel": "Search for a tag...",
       "button": {
         "addTask": {
-          "label": "New Tag"
+          "label": "New tag"
         }
       }
     },
     "modal": {
       "createTag": {
-        "title": "New Tag",
+        "title": "New tag",
         "form": {
           "placeholder": {
             "title": "Name",
@@ -217,6 +217,29 @@
     "locale": {
       "placeholder": "Language",
       "label": "Language"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "Changelog",
+      "subtitle": "Version {value}"
+    },
+    "content": {
+      "note1": {
+        "type": "Improvement",
+        "tagType": "info",
+        "note": "Task list: filters are now saved in memory when changing pages."
+      },
+      "note2": {
+        "type": "Improvement",
+        "tagType": "info",
+        "note": "Task card: Entering or pasting an external link now transforms the text into a clickable link."
+      },
+      "note3": {
+        "type": "New",
+        "tagType": "success",
+        "note": "The changelog page is now public. It's accessible via the version number in the settings panel."
+      }
     }
   }
 }

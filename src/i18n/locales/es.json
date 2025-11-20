@@ -1,21 +1,21 @@
 {
   "welcome": "Bienvenido a Note Express",
   "common": {
-    "emptyMessage": "Sin elementos",
+    "emptyMessage": "Ningún elemento",
     "cancel": "Cancelar",
     "delete": "Eliminar"
   },
   "footer": {
     "button": {
       "tags": {
-        "label": "Lista de Etiquetas",
-        "tooltip": "Gestión de Etiquetas"
+        "label": "Lista de etiquetas",
+        "tooltip": "Gestión de etiquetas"
       }
     }
   },
   "home": {
     "message": {
-      "allDone": "¡Todo completado!",
+      "allDone": "¡Todo terminado!",
       "deleteAll": {
         "description": "¿Eliminar todas las tareas completadas?",
         "yes": "Sí",
@@ -24,11 +24,11 @@
       "notFound": "No se encontraron tareas."
     },
     "header": {
-      "title": "Lista de Tareas",
+      "title": "Lista de tareas",
       "searchLabel": "Buscar una tarea...",
       "button": {
         "addTask": {
-          "label": "Nueva Tarea"
+          "label": "Nueva tarea"
         },
         "filter": {
           "label": "Filtrar por etiqueta",
@@ -38,13 +38,13 @@
     },
     "button": {
       "deleteAllDone": {
-        "label": "Eliminar Tareas Completadas",
-        "tooltip": "Eliminar Tareas Completadas"
+        "label": "Eliminar tareas completadas",
+        "tooltip": "Eliminar tareas completadas"
       }
     },
     "modal": {
       "createTask": {
-        "title": "Nueva Tarea",
+        "title": "Nueva tarea",
         "form": {
           "placeholder": {
             "title": "Título",
@@ -52,7 +52,7 @@
             "selectTags": "Seleccionar etiquetas"
           },
           "button": {
-            "submit": "Enviar"
+            "submit": "Validar"
           }
         }
       },
@@ -64,7 +64,7 @@
       "loading": {
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error al cargar las etiquetas."
+          "message": "Ocurrió un problema al cargar las etiquetas."
         }
       },
       "deleteAll": {
@@ -74,7 +74,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la eliminación."
+          "message": "Ocurrió un problema durante la eliminación."
         }
       },
       "delete": {
@@ -84,7 +84,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la eliminación."
+          "message": "Ocurrió un problema durante la eliminación."
         }
       },
       "create": {
@@ -94,7 +94,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la creación."
+          "message": "Ocurrió un problema durante la creación."
         }
       },
       "update": {
@@ -104,7 +104,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la actualización."
+          "message": "Ocurrió un problema durante la actualización."
         }
       }
     }
@@ -119,24 +119,24 @@
       }
     },
     "header": {
-      "title": "Lista de Etiquetas",
+      "title": "Lista de etiquetas",
       "searchLabel": "Buscar una etiqueta...",
       "button": {
         "addTask": {
-          "label": "Nueva Etiqueta"
+          "label": "Nueva etiqueta"
         }
       }
     },
     "modal": {
       "createTag": {
-        "title": "Nueva Etiqueta",
+        "title": "Nueva etiqueta",
         "form": {
           "placeholder": {
             "title": "Nombre",
             "color": "Color"
           },
           "button": {
-            "submit": "Enviar"
+            "submit": "Validar"
           }
         }
       },
@@ -154,7 +154,7 @@
         "row": "{nb} tareas"
       },
       "emptyState": {
-        "message": "No hay etiquetas."
+        "message": "Sin etiquetas."
       }
     },
     "floatingBar": {
@@ -167,7 +167,7 @@
       "loading": {
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error al cargar las etiquetas."
+          "message": "Ocurrió un problema al cargar las etiquetas."
         }
       },
       "deleteAll": {
@@ -177,7 +177,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la eliminación."
+          "message": "Ocurrió un problema durante la eliminación."
         }
       },
       "delete": {
@@ -187,7 +187,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la eliminación."
+          "message": "Ocurrió un problema durante la eliminación."
         }
       },
       "create": {
@@ -197,7 +197,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la creación."
+          "message": "Ocurrió un problema durante la creación."
         }
       },
       "update": {
@@ -207,7 +207,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "Ocurrió un error durante la actualización."
+          "message": "Ocurrió un problema durante la actualización."
         }
       }
     }
@@ -217,6 +217,29 @@
     "locale": {
       "placeholder": "Idioma",
       "label": "Idioma"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "Registro de cambios",
+      "subtitle": "Versión {value}"
+    },
+    "content": {
+      "note1": {
+        "type": "Mejora",
+        "tagType": "info",
+        "note": "Lista de tareas: los filtros ahora se guardan en memoria al cambiar de página."
+      },
+      "note2": {
+        "type": "Mejora",
+        "tagType": "info",
+        "note": "Tarjeta de tarea: Introducir o pegar un enlace externo ahora transforma el texto en un enlace clicable."
+      },
+      "note3": {
+        "type": "Nuevo",
+        "tagType": "success",
+        "note": "La página del registro de cambios ahora es pública. Es accesible mediante el número de versión desde el panel de configuración."
+      }
     }
   }
 }

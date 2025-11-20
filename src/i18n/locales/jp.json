@@ -1,7 +1,7 @@
 {
   "welcome": "Note Expressへようこそ",
   "common": {
-    "emptyMessage": "項目がありません",
+    "emptyMessage": "項目なし",
     "cancel": "キャンセル",
     "delete": "削除"
   },
@@ -15,24 +15,24 @@
   },
   "home": {
     "message": {
-      "allDone": "すべて完了！",
+      "allDone": "すべて完了しました！",
       "deleteAll": {
-        "description": "完了したタスクをすべて削除しますか？",
+        "description": "完了したすべてのタスクを削除しますか？",
         "yes": "はい",
         "no": "いいえ"
       },
-      "notFound": "タスクが見つかりませんでした。"
+      "notFound": "タスクが見つかりません。"
     },
     "header": {
       "title": "タスク一覧",
       "searchLabel": "タスクを検索...",
       "button": {
         "addTask": {
-          "label": "新規タスク"
+          "label": "新しいタスク"
         },
         "filter": {
           "label": "タグでフィルター",
-          "emptyMessage": "結果がありません"
+          "emptyMessage": "結果なし"
         }
       }
     },
@@ -44,7 +44,7 @@
     },
     "modal": {
       "createTask": {
-        "title": "新規タスク",
+        "title": "新しいタスク",
         "form": {
           "placeholder": {
             "title": "タイトル",
@@ -52,7 +52,7 @@
             "selectTags": "タグを選択"
           },
           "button": {
-            "submit": "送信"
+            "submit": "確認"
           }
         }
       },
@@ -64,47 +64,47 @@
       "loading": {
         "error": {
           "title": "エラー",
-          "message": "タグの読み込み中にエラーが発生しました。"
+          "message": "タグの読み込み中に問題が発生しました。"
         }
       },
       "deleteAll": {
         "success": {
           "title": "成功",
-          "message": "タスクを正常に削除しました。"
+          "message": "タスクが正常に削除されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "削除中にエラーが発生しました。"
+          "message": "削除中に問題が発生しました。"
         }
       },
       "delete": {
         "success": {
           "title": "成功",
-          "message": "タスクを正常に削除しました。"
+          "message": "タスクが正常に削除されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "削除中にエラーが発生しました。"
+          "message": "削除中に問題が発生しました。"
         }
       },
       "create": {
         "success": {
           "title": "成功",
-          "message": "タスクを正常に作成しました。"
+          "message": "タスクが正常に作成されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "作成中にエラーが発生しました。"
+          "message": "作成中に問題が発生しました。"
         }
       },
       "update": {
         "success": {
           "title": "成功",
-          "message": "タスクを正常に更新しました。"
+          "message": "タスクが正常に更新されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "更新中にエラーが発生しました。"
+          "message": "更新中に問題が発生しました。"
         }
       }
     }
@@ -123,20 +123,20 @@
       "searchLabel": "タグを検索...",
       "button": {
         "addTask": {
-          "label": "新規タグ"
+          "label": "新しいタグ"
         }
       }
     },
     "modal": {
       "createTag": {
-        "title": "新規タグ",
+        "title": "新しいタグ",
         "form": {
           "placeholder": {
             "title": "名前",
             "color": "色"
           },
           "button": {
-            "submit": "送信"
+            "submit": "確認"
           }
         }
       },
@@ -151,63 +151,63 @@
     "table": {
       "name": {
         "head": "名前",
-        "row": "{nb}タスク"
+        "row": "{nb}個のタスク"
       },
       "emptyState": {
-        "message": "タグがありません"
+        "message": "タグなし。"
       }
     },
     "floatingBar": {
       "button": {
-        "label": "選択した{nb}個のタグを削除",
-        "ariaLabel": "選択したタグを削除"
+        "label": "選択された{nb}個のタグを削除",
+        "ariaLabel": "選択されたタグを削除"
       }
     },
     "toast": {
       "loading": {
         "error": {
           "title": "エラー",
-          "message": "タグの読み込み中にエラーが発生しました。"
+          "message": "タグの読み込み中に問題が発生しました。"
         }
       },
       "deleteAll": {
         "success": {
           "title": "成功",
-          "message": "タグを正常に削除しました。"
+          "message": "タグが正常に削除されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "削除中にエラーが発生しました。"
+          "message": "削除中に問題が発生しました。"
         }
       },
       "delete": {
         "success": {
           "title": "成功",
-          "message": "タグを正常に削除しました。"
+          "message": "タグが正常に削除されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "削除中にエラーが発生しました。"
+          "message": "削除中に問題が発生しました。"
         }
       },
       "create": {
         "success": {
           "title": "成功",
-          "message": "タグを正常に作成しました。"
+          "message": "タグが正常に作成されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "作成中にエラーが発生しました。"
+          "message": "作成中に問題が発生しました。"
         }
       },
       "update": {
         "success": {
           "title": "成功",
-          "message": "タグを正常に更新しました。"
+          "message": "タグが正常に更新されました。"
         },
         "error": {
           "title": "エラー",
-          "message": "更新中にエラーが発生しました。"
+          "message": "更新中に問題が発生しました。"
         }
       }
     }
@@ -217,6 +217,29 @@
     "locale": {
       "placeholder": "言語",
       "label": "言語"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "変更履歴",
+      "subtitle": "バージョン {value}"
+    },
+    "content": {
+      "note1": {
+        "type": "改善",
+        "tagType": "info",
+        "note": "タスク一覧：ページ変更時にフィルターがメモリに保存されるようになりました。"
+      },
+      "note2": {
+        "type": "改善",
+        "tagType": "info",
+        "note": "タスクカード：外部リンクの入力または貼り付け時にテキストがクリック可能なリンクに変換されるようになりました。"
+      },
+      "note3": {
+        "type": "新機能",
+        "tagType": "success",
+        "note": "変更履歴ページが公開されました。設定パネルからバージョン番号を介してアクセスできます。"
+      }
     }
   }
 }

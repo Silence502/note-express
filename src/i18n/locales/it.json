@@ -1,0 +1,245 @@
+{
+  "welcome": "Benvenuto su Note Express",
+  "common": {
+    "emptyMessage": "Nessun elemento",
+    "cancel": "Annulla",
+    "delete": "Elimina"
+  },
+  "footer": {
+    "button": {
+      "tags": {
+        "label": "Lista tag",
+        "tooltip": "Gestione tag"
+      }
+    }
+  },
+  "home": {
+    "message": {
+      "allDone": "Tutto completato!",
+      "deleteAll": {
+        "description": "Eliminare tutte le attività completate?",
+        "yes": "Sì",
+        "no": "No"
+      },
+      "notFound": "Nessuna attività trovata."
+    },
+    "header": {
+      "title": "Lista attività",
+      "searchLabel": "Cerca un'attività...",
+      "button": {
+        "addTask": {
+          "label": "Nuova attività"
+        },
+        "filter": {
+          "label": "Filtra per tag",
+          "emptyMessage": "Nessun risultato"
+        }
+      }
+    },
+    "button": {
+      "deleteAllDone": {
+        "label": "Elimina attività completate",
+        "tooltip": "Elimina attività completate"
+      }
+    },
+    "modal": {
+      "createTask": {
+        "title": "Nuova attività",
+        "form": {
+          "placeholder": {
+            "title": "Titolo",
+            "description": "Descrizione",
+            "selectTags": "Seleziona tag"
+          },
+          "button": {
+            "submit": "Conferma"
+          }
+        }
+      },
+      "updateTask": {
+        "title": "Modifica"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante il caricamento dei tag."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Successo",
+          "message": "Le attività sono state eliminate correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante l'eliminazione."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Successo",
+          "message": "L'attività è stata eliminata correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante l'eliminazione."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Successo",
+          "message": "L'attività è stata creata correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante la creazione."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Successo",
+          "message": "L'attività è stata aggiornata correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante l'aggiornamento."
+        }
+      }
+    }
+  },
+  "tags": {
+    "menu": {
+      "edit": {
+        "label": "Modifica"
+      },
+      "delete": {
+        "label": "Elimina"
+      }
+    },
+    "header": {
+      "title": "Lista tag",
+      "searchLabel": "Cerca un tag...",
+      "button": {
+        "addTask": {
+          "label": "Nuovo tag"
+        }
+      }
+    },
+    "modal": {
+      "createTag": {
+        "title": "Nuovo tag",
+        "form": {
+          "placeholder": {
+            "title": "Nome",
+            "color": "Colore"
+          },
+          "button": {
+            "submit": "Conferma"
+          }
+        }
+      },
+      "updateTag": {
+        "title": "Modifica"
+      },
+      "confirmDelete": {
+        "title": "Conferma",
+        "content": "Eliminare {nb} tag?"
+      }
+    },
+    "table": {
+      "name": {
+        "head": "Nome",
+        "row": "{nb} attività"
+      },
+      "emptyState": {
+        "message": "Nessun tag."
+      }
+    },
+    "floatingBar": {
+      "button": {
+        "label": "Elimina {nb} tag selezionati",
+        "ariaLabel": "Elimina tag selezionati"
+      }
+    },
+    "toast": {
+      "loading": {
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante il caricamento dei tag."
+        }
+      },
+      "deleteAll": {
+        "success": {
+          "title": "Successo",
+          "message": "I tag sono stati eliminati correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante l'eliminazione."
+        }
+      },
+      "delete": {
+        "success": {
+          "title": "Successo",
+          "message": "Il tag è stato eliminato correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante l'eliminazione."
+        }
+      },
+      "create": {
+        "success": {
+          "title": "Successo",
+          "message": "Il tag è stato creato correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante la creazione."
+        }
+      },
+      "update": {
+        "success": {
+          "title": "Successo",
+          "message": "Il tag è stato aggiornato correttamente."
+        },
+        "error": {
+          "title": "Errore",
+          "message": "Si è verificato un problema durante l'aggiornamento."
+        }
+      }
+    }
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "locale": {
+      "placeholder": "Lingua",
+      "label": "Lingua"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "Registro modifiche",
+      "subtitle": "Versione {value}"
+    },
+    "content": {
+      "note1": {
+        "type": "Miglioramento",
+        "tagType": "info",
+        "note": "Lista attività: i filtri vengono ora mantenuti in memoria durante il cambio pagina."
+      },
+      "note2": {
+        "type": "Miglioramento",
+        "tagType": "info",
+        "note": "Scheda attività: Inserire o incollare un link esterno ora trasforma il testo in un link cliccabile."
+      },
+      "note3": {
+        "type": "Nuovo",
+        "tagType": "success",
+        "note": "La pagina del registro modifiche è ora pubblica. È accessibile tramite il numero di versione dal pannello impostazioni."
+      }
+    }
+  }
+}

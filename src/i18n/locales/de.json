@@ -25,7 +25,7 @@
     },
     "header": {
       "title": "Aufgabenliste",
-      "searchLabel": "Nach einer Aufgabe suchen...",
+      "searchLabel": "Aufgabe suchen...",
       "button": {
         "addTask": {
           "label": "Neue Aufgabe"
@@ -52,7 +52,7 @@
             "selectTags": "Tags auswählen"
           },
           "button": {
-            "submit": "Absenden"
+            "submit": "Bestätigen"
           }
         }
       },
@@ -64,7 +64,7 @@
       "loading": {
         "error": {
           "title": "Fehler",
-          "message": "Beim Laden der Tags ist ein Fehler aufgetreten."
+          "message": "Beim Laden der Tags ist ein Problem aufgetreten."
         }
       },
       "deleteAll": {
@@ -74,7 +74,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Löschen ist ein Fehler aufgetreten."
+          "message": "Beim Löschen ist ein Problem aufgetreten."
         }
       },
       "delete": {
@@ -84,7 +84,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Löschen ist ein Fehler aufgetreten."
+          "message": "Beim Löschen ist ein Problem aufgetreten."
         }
       },
       "create": {
@@ -94,7 +94,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Erstellen ist ein Fehler aufgetreten."
+          "message": "Beim Erstellen ist ein Problem aufgetreten."
         }
       },
       "update": {
@@ -104,7 +104,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Aktualisieren ist ein Fehler aufgetreten."
+          "message": "Beim Aktualisieren ist ein Problem aufgetreten."
         }
       }
     }
@@ -120,7 +120,7 @@
     },
     "header": {
       "title": "Tag-Liste",
-      "searchLabel": "Nach einem Tag suchen...",
+      "searchLabel": "Tag suchen...",
       "button": {
         "addTask": {
           "label": "Neuer Tag"
@@ -136,7 +136,7 @@
             "color": "Farbe"
           },
           "button": {
-            "submit": "Absenden"
+            "submit": "Bestätigen"
           }
         }
       },
@@ -167,7 +167,7 @@
       "loading": {
         "error": {
           "title": "Fehler",
-          "message": "Beim Laden der Tags ist ein Fehler aufgetreten."
+          "message": "Beim Laden der Tags ist ein Problem aufgetreten."
         }
       },
       "deleteAll": {
@@ -177,7 +177,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Löschen ist ein Fehler aufgetreten."
+          "message": "Beim Löschen ist ein Problem aufgetreten."
         }
       },
       "delete": {
@@ -187,7 +187,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Löschen ist ein Fehler aufgetreten."
+          "message": "Beim Löschen ist ein Problem aufgetreten."
         }
       },
       "create": {
@@ -197,7 +197,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Erstellen ist ein Fehler aufgetreten."
+          "message": "Beim Erstellen ist ein Problem aufgetreten."
         }
       },
       "update": {
@@ -207,7 +207,7 @@
         },
         "error": {
           "title": "Fehler",
-          "message": "Beim Aktualisieren ist ein Fehler aufgetreten."
+          "message": "Beim Aktualisieren ist ein Problem aufgetreten."
         }
       }
     }
@@ -217,6 +217,29 @@
     "locale": {
       "placeholder": "Sprache",
       "label": "Sprache"
+    }
+  },
+  "change-log": {
+    "header": {
+      "title": "Änderungsprotokoll",
+      "subtitle": "Version {value}"
+    },
+    "content": {
+      "note1": {
+        "type": "Verbesserung",
+        "tagType": "info",
+        "note": "Aufgabenliste: Filter werden beim Seitenwechsel jetzt im Speicher behalten."
+      },
+      "note2": {
+        "type": "Verbesserung",
+        "tagType": "info",
+        "note": "Aufgabenkarte: Das Eingeben oder Einfügen eines externen Links verwandelt den Text jetzt in einen klickbaren Link."
+      },
+      "note3": {
+        "type": "Neu",
+        "tagType": "success",
+        "note": "Die Änderungsprotokoll-Seite ist jetzt öffentlich. Sie ist über die Versionsnummer im Einstellungsbereich zugänglich."
+      }
     }
   }
 }
