@@ -1,6 +1,5 @@
 {
   "welcome": "Bienvenue sur Note Express",
-  "version": "0.0.261120a",
   "common": {
     "emptyMessage": "Aucun élément",
     "cancel": "Annuler",
@@ -223,10 +222,24 @@
   "change-log": {
     "header": {
       "title": "Journal des modifications",
-      "subtitle": "Version 0.0.261120a"
+      "subtitle": "Version {value}"
     },
     "content": {
-
+      "note1": {
+        "type": "Amélioration",
+        "tagType": "info",
+        "note": "Liste des tâches : les filtres sont désormais gardés en mémoire lors du changement de page."
+      },
+      "note2": {
+        "type": "Amélioration",
+        "tagType": "info",
+        "note": "Carte de tâche : Saisir ou inséré un lien externe transforme désormais le texte en lien cliquable."
+      },
+      "note3": {
+        "type": "Nouveau",
+        "tagType": "success",
+        "note": "La page du journal des modifications et désormais rendue publique. Elle accessible via le numéro de version depuis le panneau des paramètres."
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ import InputGroupAddon from 'primevue/inputgroupaddon';
 import {onMounted, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import ToggleTheme from "@/components/ToggleTheme.vue";
+const version = ref(import.meta.env.VITE_APP_VERSION)
 
 const {t, locale} = useI18n();
 
@@ -33,7 +34,7 @@ onMounted(() => {
 
 <template>
   <section class="flex flex-col justify-center h-full">
-    <div class="flex flex-row gap-2 justify-between items-center">
+    <section class="flex flex-row gap-2 justify-between items-center">
       <InputGroup class="!w-[140px]">
         <InputGroupAddon>
           <i class="pi pi-globe"></i>
@@ -48,10 +49,10 @@ onMounted(() => {
                 @change="changeLocale(selectedLocale)"/>
       </InputGroup>
       <ToggleTheme/>
-    </div>
-    <div>
-      <router-link to="/change-log" @click="$emit('close')">{{t('version')}}</router-link>
-    </div>
+    </section>
+    <section>
+      <router-link to="/change-log" @click="$emit('close')" class="!text-xs">{{version}}</router-link>
+    </section>
   </section>
 </template>
 
