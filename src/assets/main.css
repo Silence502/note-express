@@ -75,6 +75,13 @@ body {
         transition: all 0.2s ease-in-out;
     }
 
+    .task-card {
+        cursor: grab;
+        position: relative;
+        z-index: 1;
+        transition: all 0.2s ease;
+    }
+
     .img-all-done {
         content: var(--coffee-icon);
         width: 50px;

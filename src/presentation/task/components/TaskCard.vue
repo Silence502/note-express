@@ -81,7 +81,7 @@ const getTaskTagsName = () => {
 </script>
 
 <template>
-  <Card class="bordered"
+  <Card class="bordered task-card"
         :class="{'no-content': task.description === null || !task.description, 'is-done': task.isDone, 'priority': task.priority }"
         :draggable="!task.isDone && !filtered"
         :id="task.id"
@@ -93,7 +93,8 @@ const getTaskTagsName = () => {
     <template #header>
       <div class="w-full grid grid-cols-[auto_auto_auto] justify-end">
         <div class="flex gap-1 items-center justify-end mr-2">
-          <i class="pi !text-[10px]" :class="{'pi-check-circle text-green-700': task.isDone, 'pi-minus-circle': !task.isDone}"/>
+          <i class="pi !text-[10px]"
+             :class="{'pi-check-circle text-green-700': task.isDone, 'pi-minus-circle': !task.isDone}"/>
           <span class="!text-xs text-[var(--color-neutral-500)]">{{ formattedDate }}
           </span>
         </div>
@@ -131,7 +132,8 @@ const getTaskTagsName = () => {
     </template>
     <template #footer>
       <Divider/>
-      <div class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center">
+      <div
+          class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center">
         <div class="flex gap-1 items-center">
           <Tag v-for="tag in getTaskTags().slice(0, 2)"
                :key="tag.id as number"
@@ -144,8 +146,10 @@ const getTaskTagsName = () => {
                style="background-color: var(--p-chip-background); color: var(--p-chip-color);"/>
         </div>
         <div>
-          <Button :disabled="task.isDone" class="h-6 max-w-6" :severity="task.priority ? 'danger' : 'secondary'" variant="text" size="small"
-                  :icon="task.priority ? 'pi pi-flag-fill' : 'pi pi-flag'" @click="$emit('isPriority', task.id as number)"/>
+          <Button :disabled="task.isDone" class="h-6 max-w-6" :severity="task.priority ? 'danger' : 'secondary'"
+                  variant="text" size="small"
+                  :icon="task.priority ? 'pi pi-flag-fill' : 'pi pi-flag'"
+                  @click="$emit('isPriority', task.id as number)"/>
         </div>
       </div>
     </template>
