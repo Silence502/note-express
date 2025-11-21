@@ -9,6 +9,7 @@
     --color-background-primary: var(--p-surface-0);
     --color-background-danger-light: var(--p-red-800);
     --color-content-secondary: var(--p-neutral-700);
+    --color-border-alert: var(--p-red-600);
 }
 
 @layer theme {
@@ -16,6 +17,7 @@
         --color-background-primary: var(--p-surface-950);
         --color-background-danger-light: var(--p-red-300);
         --color-content-secondary: var(--p-neutral-500);
+        --color-border-alert: var(--p-red-400);
     }
 }
 

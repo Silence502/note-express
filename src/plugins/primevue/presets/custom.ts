@@ -206,7 +206,7 @@ export default definePreset(Aura, {
                     border: 1px solid var(--p-content-border-color);
                 }
                 .p-card.bordered.priority {
-                    border: 1px solid var(--color-background-danger-light);
+                    border: 1px solid var(--color-border-alert);
                 }
                 .p-card.no-content {
                     .p-card-body {
