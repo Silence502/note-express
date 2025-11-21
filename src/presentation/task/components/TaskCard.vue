@@ -133,7 +133,7 @@ const getTaskTagsName = () => {
       </div>
     </template>
     <template #footer>
-      <Divider/>
+      <Divider :class="{'!pointer-event-none': isDragging}"/>
       <div
           class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center" :class="{'pointer-event-none': isDragging}">
         <div class="flex gap-1 items-center">
