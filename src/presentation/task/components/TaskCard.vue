@@ -63,7 +63,7 @@ const formattedDate = computed(() => {
   return DateTime.fromJSDate(date)
       .setLocale(locale.value)
       .toLocaleString(DateTime.DATETIME_SHORT)
-      .replace(' ', ' - ');
+      .replace(' ', ' - ').replace(',', '');
 });
 
 
