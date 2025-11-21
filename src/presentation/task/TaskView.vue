@@ -62,7 +62,7 @@ const showAllDone = computed(() => {
   return tasks.value.every(task => task.isDone) && !currentFilter.value.search && !currentFilter.value.tags?.length;
 })
 const showNotFound = computed(() => {
-  return currentFilter.value.search || currentFilter.value.tags?.length && !tasks.value.length
+  return currentFilter.value.search && !tasks.value.length || currentFilter.value.tags?.length && !tasks.value.length
 })
 const showSpinner = computed(() => {
   return isListLoading.value;
