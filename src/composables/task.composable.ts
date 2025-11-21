@@ -1,13 +1,14 @@
 import {ref, computed} from 'vue';
 import {taskRepository} from '@/infrastructure/repositories/task.repository';
 import type {Task, TaskInput} from '@/infrastructure/schemas/task.schema';
-import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
 import {useToast} from "primevue/usetoast";
 import {useI18n} from "vue-i18n";
+import {taskStore} from "@/stores/taskStore.ts";
 
 export function useTasks() {
-    const {t, locale} = useI18n();
+    const {t} = useI18n();
     const toast = useToast();
+    const useTasks = taskStore()
 
     const currentFilter = ref<{ isDone?: boolean; tags?: number[]; search?: string }>({});
     const tasks = ref<Task[]>([]);
@@ -57,6 +58,7 @@ export function useTasks() {
             } : undefined;
 
             tasks.value = await taskRepository.findByFilters(validatedFilters);
+            useTasks.setData(tasks.value)
         } catch (err) {
             error.value = err instanceof Error ? err.message : 'Erreur lors du chargement des tâches';
             console.error('Erreur détaillée:', err);

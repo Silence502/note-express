@@ -37,6 +37,7 @@
     "@tsconfig/node22": "^22.0.2",
     "@types/luxon": "^3.7.1",
     "@types/node": "^22.18.11",
+    "@types/papaparse": "^5.5.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
     "npm-run-all2": "^8.0.4",

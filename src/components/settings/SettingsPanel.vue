@@ -5,9 +5,23 @@ import InputGroupAddon from 'primevue/inputgroupaddon';
 import {onMounted, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import ToggleTheme from "@/components/ToggleTheme.vue";
+import Button from "primevue/button";
+import {taskStore} from "@/stores/taskStore.ts";
+import {useDataParser} from "@/composables/dataParser.composable.ts";
+import Divider from "primevue/divider";
+
 const version = ref(import.meta.env.VITE_APP_VERSION)
 
+const emit = defineEmits<{
+  (e: 'close'): void;
+}>()
+
+const {
+  exportToCSV
+} = useDataParser()
+
 const {t, locale} = useI18n();
+const useTasks = taskStore()
 
 const selectedLocale = ref();
 const locales = ref([
@@ -34,8 +48,16 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="flex flex-col justify-center h-full">
-    <section class="flex flex-row gap-2 justify-between items-center">
+  <section class="flex flex-col justify-end h-full gap-2">
+    <div class="flex gap-2 flex-col justify-start">
+      <h3>Import - export</h3>
+      <div class="flex flex-row gap-2 justify-start items-center">
+        <Button severity="secondary" variant="text" icon="pi pi-file-import" @click=""/>
+        <Button severity="secondary" variant="text" icon="pi pi-file-export" @click="exportToCSV(useTasks.data)"/>
+      </div>
+    </div>
+    <Divider />
+    <div class="flex flex-row gap-2 justify-between items-center">
       <InputGroup class="!w-[140px]">
         <InputGroupAddon>
           <i class="pi pi-globe"></i>
@@ -50,9 +72,9 @@ onMounted(() => {
                 @change="changeLocale(selectedLocale)"/>
       </InputGroup>
       <ToggleTheme/>
-    </section>
+    </div>
     <section>
-      <router-link to="/change-log" @click="$emit('close')" class="!text-xs">{{version}}</router-link>
+      <router-link to="/change-log" @click="$emit('close')" class="!text-xs">{{ version }}</router-link>
     </section>
   </section>
 </template>

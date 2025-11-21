@@ -28,7 +28,7 @@ onMounted(() => {
 
 <template>
   <div>
-    <Button severity="secondary" variant="text" :icon="value ? 'pi pi-sun' : 'pi pi-moon'" @click="toggleTheme" />
+    <Button severity="secondary" variant="outlined" :icon="value ? 'pi pi-sun' : 'pi pi-moon'" @click="toggleTheme" />
   </div>
 </template>
 
