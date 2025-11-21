@@ -7,7 +7,6 @@ import TasksList from "@/presentation/task/components/TasksList.vue";
 import SectionLayout from "@/layouts/SectionLayout.vue";
 import TaskForm from "@/presentation/task/components/TaskForm.vue";
 import SearchComponent from "@/components/SearchComponent.vue";
-import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
 import HeaderComponent from "@/components/HeaderComponent.vue";
 import {useTag} from "@/composables/tag.composable.ts";
 import Divider from "primevue/divider";
@@ -55,6 +54,7 @@ const selectedTags = ref<number[]>([]);
 const isModalCreateVisible = ref(false);
 const draggedCard = ref<Task | null>(null)
 const data = ref<Task[] | null>(null)
+const isDragging = ref(false)
 
 //COMPUTED
 
@@ -95,6 +95,7 @@ const handleFilter = (value: number[]) => {
 
 const dragStart = (card: Task, e: DragEvent) => {
   const target = e.target as HTMLElement;
+  isDragging.value = true;
 
   if (card && e.dataTransfer) {
     draggedCard.value = card;
@@ -122,6 +123,7 @@ const dragStart = (card: Task, e: DragEvent) => {
 
 const onDrop = (e: DragEvent) => {
   e.preventDefault();
+  isDragging.value = false;
 
   document.querySelectorAll('.drag-over').forEach(el => {
     el.classList.remove('drag-over');
@@ -276,6 +278,7 @@ watch(tasks, (newTasks) => {
                  :loading="isListLoading"
                  :tags="tags"
                  :filtered="filteredTasks"
+                 :isDragging="isDragging"
                  :drag-start="dragStart"
                  :on-drop="onDrop"
                  :on-drag-over="onDragOver"

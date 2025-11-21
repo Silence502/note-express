@@ -76,7 +76,6 @@ body {
     }
 
     .task-card {
-        cursor: grab;
         position: relative;
         z-index: 1;
         transition: all 0.2s ease;

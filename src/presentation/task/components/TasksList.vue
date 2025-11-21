@@ -8,6 +8,7 @@ const props = withDefaults(defineProps<{
   loading: boolean
   tags: Tag[]
   filtered?: boolean
+  isDragging?: boolean
   onDragOver?: (event: DragEvent) => void;
   onDragLeave?: (event: DragEvent) => void;
   onDrop?: (event: DragEvent) => void;
@@ -31,6 +32,7 @@ const emit = defineEmits<{
             :tags="tags"
             :filtered="filtered"
             :loading
+            :isDragging="isDragging"
             @dragover.prevent="onDragOver"
             @dragleave="onDragLeave"
             @drop.prevent="onDrop"

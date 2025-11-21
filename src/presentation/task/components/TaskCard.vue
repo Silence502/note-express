@@ -12,17 +12,18 @@ import type {Tag as TagObject} from "@/infrastructure/schemas/tag.schema.ts";
 import {contrastColor} from "@/utils/colorConstrastManager.ts";
 import Checkbox from "primevue/checkbox";
 import {useI18n} from "vue-i18n";
-import {linkMaker} from "@/utils/common.ts";
 
 const {t, locale} = useI18n();
 
 const props = withDefaults(defineProps<{
   task: Task;
   loading: boolean
+  isDragging?: boolean
   tags: TagObject[]
   filtered?: boolean
 }>(), {
-  filtered: false
+  filtered: false,
+  isDragging: false
 })
 
 const emit = defineEmits<{
@@ -91,7 +92,7 @@ const getTaskTagsName = () => {
         @dragleave="$emit('dragleave', $event)"
         @drop="$emit('drop', $event)">
     <template #header>
-      <div class="w-full grid grid-cols-[auto_auto_auto] justify-end">
+      <div class="w-full grid grid-cols-[auto_auto_auto] justify-end" :class="{'pointer-event-none': isDragging}">
         <div class="flex gap-1 items-center justify-end mr-2">
           <i class="pi !text-[10px]"
              :class="{'pi-check-circle text-green-700': task.isDone, 'pi-minus-circle': !task.isDone}"/>
@@ -117,7 +118,7 @@ const getTaskTagsName = () => {
       </div>
     </template>
     <template #title>
-      <div class="flex gap-2 items-start">
+      <div class="flex gap-2 items-start" :class="{'pointer-event-none': isDragging}">
         <Checkbox v-model="task.isDone" @change="$emit('isDone', task.id as number)" binary/>
         <h4 class="text-sm" :class="{'line-through': task.isDone}">{{ task.title }}</h4>
       </div>
@@ -126,6 +127,7 @@ const getTaskTagsName = () => {
       <div
           v-if="task.description"
           class="m-0 text-content-secondary text-sm"
+          :class="{'pointer-event-none': isDragging}"
           v-html="processedDescription"
       >
       </div>
@@ -133,7 +135,7 @@ const getTaskTagsName = () => {
     <template #footer>
       <Divider/>
       <div
-          class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center">
+          class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center" :class="{'pointer-event-none': isDragging}">
         <div class="flex gap-1 items-center">
           <Tag v-for="tag in getTaskTags().slice(0, 2)"
                :key="tag.id as number"
