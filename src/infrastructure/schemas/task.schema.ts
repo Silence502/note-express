@@ -16,3 +16,4 @@ export const TaskSchema = z.object({
 
 export type Task = z.infer<typeof TaskSchema>;
 export type TaskInput = Omit<Task, 'id' | 'createdAt' | 'updatedAt'>;
+export type TaskImport = Omit<Task, 'id' | 'tags'>;
