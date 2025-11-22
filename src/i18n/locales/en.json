@@ -106,6 +106,16 @@
           "title": "Error",
           "message": "An error occurred during update."
         }
+      },
+      "import": {
+        "success": {
+          "title": "Success",
+          "message": "The file has been successfully imported."
+        },
+        "error": {
+          "title": "Error",
+          "message": "An error occurred during import."
+        }
       }
     }
   },

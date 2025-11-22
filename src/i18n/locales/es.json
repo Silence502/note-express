@@ -106,6 +106,16 @@
           "title": "Error",
           "message": "Ocurrió un problema durante la actualización."
         }
+      },
+      "import": {
+        "success": {
+          "title": "Éxito",
+          "message": "El archivo se ha importado correctamente."
+        },
+        "error": {
+          "title": "Error",
+          "message": "Ocurrió un problema durante la importación."
+        }
       }
     }
   },

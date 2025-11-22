@@ -64,7 +64,7 @@
       "loading": {
         "error": {
           "title": "Erreur",
-          "message": "Un problème est survenu lors du chargeùent des tags."
+          "message": "Un problème est survenue lors du chargement des tags."
         }
       },
       "deleteAll": {
@@ -74,7 +74,7 @@
         },
         "error": {
           "title": "Erreur",
-          "message": "Un problème est survenu lors de la suppression."
+          "message": "Un problème est survenue lors de la suppression."
         }
       },
       "delete": {
@@ -84,7 +84,7 @@
         },
         "error": {
           "title": "Erreur",
-          "message": "Un problème est survenu lors de la suppression."
+          "message": "Un problème est survenue lors de la suppression."
         }
       },
       "create": {
@@ -94,7 +94,7 @@
         },
         "error": {
           "title": "Erreur",
-          "message": "Un problème est survenu lors de la création."
+          "message": "Un problème est survenue lors de la création."
         }
       },
       "update": {
@@ -104,7 +104,17 @@
         },
         "error": {
           "title": "Erreur",
-          "message": "Un problème est survenu lors de la mise à jour."
+          "message": "Un problème est survenue lors de la mise à jour."
+        }
+      },
+      "import": {
+        "success": {
+          "title": "Succès",
+          "message": "Le fichier à bien été importé."
+        },
+        "error": {
+          "title": "Erreur",
+          "message": "Un problème est survenue lors de l'importation'."
         }
       }
     }
@@ -167,7 +177,7 @@
       "loading": {
         "error": {
           "title": "Erreur",
-          "message": "Un problème est survenu lors du chargeùent des tags."
+          "message": "Un problème est survenu lors du chargement des tags."
         }
       },
       "deleteAll": {

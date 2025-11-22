@@ -106,6 +106,16 @@
           "title": "Fehler",
           "message": "Beim Aktualisieren ist ein Problem aufgetreten."
         }
+      },
+      "import": {
+        "success": {
+          "title": "Erfolg",
+          "message": "Die Datei wurde erfolgreich importiert."
+        },
+        "error": {
+          "title": "Fehler",
+          "message": "Beim Import ist ein Problem aufgetreten."
+        }
       }
     }
   },
