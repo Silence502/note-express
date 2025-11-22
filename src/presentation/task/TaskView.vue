@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useTasks} from "@/composables/task.composable";
 import Dialog from "primevue/dialog";
-import {computed, type ComputedRef, ref, watch} from "vue";
+import {computed, type ComputedRef, onMounted, ref, watch} from "vue";
 import type {Task, TaskInput} from "@/infrastructure/schemas/task.schema";
 import TasksList from "@/presentation/task/components/TasksList.vue";
 import SectionLayout from "@/layouts/SectionLayout.vue";
@@ -15,6 +15,7 @@ import {useI18n} from "vue-i18n";
 import ConfirmPopup from 'primevue/confirmpopup';
 import { useConfirm } from "primevue/useconfirm";
 import ProgressBar from "primevue/progressbar";
+import {emitter} from "@/services/eventBus.ts";
 
 //HOOKS
 
@@ -249,12 +250,19 @@ function update(value: { id: number, task: Task }): void {
   }
 }
 
+const handleItemsUpdate = () => {
+  loadTasks(currentFilter.value);
+};
+
 //LIFECYCLE
 
 watch(tasks, (newTasks) => {
   data.value = newTasks;
 }, {immediate: true});
 
+onMounted(() => {
+  emitter.on('update-items', handleItemsUpdate);
+})
 </script>
 
 <template>

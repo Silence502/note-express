@@ -9,6 +9,7 @@ import Button from "primevue/button";
 import {taskStore} from "@/stores/taskStore.ts";
 import {useDataParser} from "@/composables/dataParser.composable.ts";
 import Divider from "primevue/divider";
+import {emitter} from "@/services/eventBus.ts";
 
 const version = ref(import.meta.env.VITE_APP_VERSION)
 
@@ -18,11 +19,12 @@ const emit = defineEmits<{
 
 const {
   exportToCSV,
-  importFromCSV
+  importFromCSV,
+  importedList
 } = useDataParser()
 
 const {t, locale} = useI18n();
-const useTasks = taskStore()
+const useTasksStore = taskStore()
 
 const fileInput = ref<HTMLInputElement | null>(null);
 const selectedLocale = ref();
@@ -41,10 +43,9 @@ function changeLocale(newLocale: string): void {
   localStorage.setItem('ne_language', newLocale)
 }
 
-// const emitterUpdate = () => {
-//   const newItems: Item[] = items.value;
-//   emitter.emit('update-items', newItems);
-// };
+const emitterUpdate = () => {
+  emitter.emit('update-items', true);
+};
 
 /**
  * Asynchronous function to handle file import from an input event.
@@ -60,17 +61,12 @@ const handleFileImport = async (e: Event) => {
   const file = (e.target as HTMLInputElement).files?.[0];
   if (!file) return;
 
-  // emitterUpdate()
+  emitterUpdate()
 
-  try {
-    importFromCSV(file).then(async () => {
-      // snackbar.call(this)
-      // emitterUpdate.call(this)
-      // drawerConfigPanel.value = false
-    });
-  } catch (err) {
-    console.error('Échec de l\'import:', err);
-  }
+  importFromCSV(file).then(async () => {
+    emitterUpdate.call(this)
+    emit('close')
+  });
 };
 
 onMounted(() => {
@@ -94,10 +90,10 @@ onMounted(() => {
             ref="fileInput"
         />
         <Button severity="secondary" variant="text" icon="pi pi-file-import" @click="fileInput?.click()"/>
-        <Button severity="secondary" variant="text" icon="pi pi-file-export" @click="exportToCSV(useTasks.data)"/>
+        <Button severity="secondary" variant="text" icon="pi pi-file-export" @click="exportToCSV(useTasksStore.data)"/>
       </div>
     </div>
-    <Divider />
+    <Divider/>
     <div class="flex flex-row gap-2 justify-between items-center">
       <InputGroup class="!w-[140px]">
         <InputGroupAddon>
