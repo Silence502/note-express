@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import {type Task} from "@/infrastructure/schemas";
+import {type Tag, type Task} from "@/infrastructure/schemas";
 import {ref} from "vue";
 import {db} from '@/infrastructure/db/database';
 
@@ -29,6 +29,18 @@ export function useDataParser() {
                         const rawData = results.data as Task[];
 
                         const itemsToImport = rawData.map((item: Task) => {
+                            let tags: Tag[] = [];
+
+                            try {
+                                if (typeof item.tags === 'string') {
+                                    tags = JSON.parse(item.tags)
+                                } else if (Array.isArray(item.tags)) {
+                                    tags = item.tags
+                                }
+                            } catch (e) {
+                                console.warn('Erreur lors du parsing des tags:', e);
+                            }
+
                             return {
                                 title: item.title,
                                 description: item.description,
@@ -38,7 +50,7 @@ export function useDataParser() {
                                 position: Number(item.position),
                                 createdAt: item.createdAt,
                                 updatedAt: item.updatedAt,
-                                tags: null
+                                tags: tags ?? []
                             };
                         }).filter(Boolean) as Task[];
 
@@ -47,6 +59,23 @@ export function useDataParser() {
                             return;
                         }
 
+                        const allTags = itemsToImport.flatMap(task => {
+                            return task.tags ?? [];
+                        });
+
+                        const uniqueTags = Array.from(
+                            new Map(
+                                allTags
+                                    .filter((tag): tag is Tag =>
+                                        tag !== null &&
+                                        typeof tag === 'object' &&
+                                        'name' in tag
+                                    )
+                                    .map(tag => [tag.name, tag])
+                            ).values()
+                        );
+
+                        await db.tags.bulkAdd(uniqueTags)
                         await db.tasks.bulkAdd(itemsToImport);
                         resolve();
                     } catch (err: any) {
@@ -67,24 +96,12 @@ export function useDataParser() {
         try {
             const dataToExport = data.map(task => ({
                 ...task,
-                tags: task.tags?.map(tag => JSON.stringify(tag)) ?? ''
-                // tags: (() => {
-                //     if (!task.tags || !Array.isArray(task.tags)) return '';
-                //
-                //     return task.tags
-                //         .map(tag => {
-                //             if (typeof tag === 'object' && tag.name) {
-                //                 return `{name: ${tag.name}, color: ${tag.color || 'null'}}`;
-                //             }
-                //             return '';
-                //         })
-                //         .filter(tagString => tagString) // Filtrer les chaînes vides
-                //         .join(', ');
-                // })()
+                priority: task.priority ?? false,
+                tags: task.tags ? [JSON.stringify(task.tags)] : []
             }));
 
             const csv = Papa.unparse(dataToExport);
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
             const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
