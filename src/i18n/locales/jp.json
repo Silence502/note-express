@@ -60,17 +60,17 @@
           },
           "button": {
             "submit": "確認"
-          },
-          "infoTask": {
-            "title": "情報",
-            "duration": "期間: {duration}",
-            "createdAt": "作成日: {date}",
-            "endedAt": "完了日: {date}"
           }
         }
       },
       "updateTask": {
         "title": "編集"
+      },
+      "infoTask": {
+        "title": "情報",
+        "duration": "期間: {duration}",
+        "createdAt": "作成日: {date}",
+        "endedAt": "完了日: {date}"
       }
     },
     "toast": {
