@@ -34,7 +34,7 @@ const isModalConfirmVisible = ref(false);
 const selectedTags = ref<TagObject[]>([]);
 const item = ref();
 const menu = ref();
-const items = ref([
+const items = computed(() => [
   {
     items: [
       {
@@ -119,7 +119,7 @@ const deleteMultiple = () => {
   </Dialog>
   <Dialog v-model:visible="isModalConfirmVisible" modal :header="t('tags.modal.confirmDelete.title')">
     <section class="flex flex-col gap-2">
-      <div>{{t('tags.modal.confirmDelete.content', {nb: selectedTags.length})}}</div>
+      <div>{{ t('tags.modal.confirmDelete.content', {nb: selectedTags.length}) }}</div>
       <div class="flex justify-end gap-2 mt-2">
         <Button size="small" :label="t('common.cancel')" severity="secondary" @click="isModalConfirmVisible = false"/>
         <Button size="small" :label="t('common.delete')" @click="deleteMultiple" severity="danger"/>
