@@ -85,12 +85,36 @@ export default definePreset(Aura, {
                     .p-menu-item.danger {
                         & .p-menu-item-content {
                             color: var(--p-form-field-invalid-placeholder-color);
+                            
+                            & .p-menu-item-link:hover {
+                                color: var(--p-form-field-invalid-placeholder-color);
+                            }
+                            
                             & .p-menu-item-icon {
                                 color: var(--p-form-field-invalid-placeholder-color);
                             }
-                            &:hover {
+                        }
+                    }
+                    
+                    .p-menu-item:not(.danger) {
+                        & .p-menu-item-link {
+                            color: var(--color-content-primary);
+                        }
+                        
+                        & .p-menu-item-icon {
+                            color: var(--color-content-primary);
+                        }
+                        
+                        & .p-menu-item-content:hover {
+                            & .p-menu-item-link {
+                                color: var(--color-content-primary);
+                                
+                                & .p-menu-item-icon {
+                                    color: var(--color-content-primary);
+                                }
                             }
                         }
+                        
                     }
                 }
                 
@@ -108,6 +132,11 @@ export default definePreset(Aura, {
                          & .ql-editor {
                             background-color: var(--p-inputtext-background);
                          }
+                    }
+                }
+                .p-editor.card-readonly {
+                    .p-editor-toolbar {
+                        padding: 8px 15px;
                     }
                 }
             `
@@ -132,7 +161,7 @@ export default definePreset(Aura, {
             css: () => `
                 .p-divider.divider-home {
                     & .p-divider-content {
-                        background-color: var(--color-background-primary);
+                        background-color: var(--color-background-secondary);
                     }
                 }
             `

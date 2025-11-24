@@ -12,6 +12,7 @@ import type {Tag as TagObject} from "@/infrastructure/schemas/tag.schema.ts";
 import {contrastColor} from "@/utils/colorConstrastManager.ts";
 import Checkbox from "primevue/checkbox";
 import {useI18n} from "vue-i18n";
+import TaskInfo from "@/presentation/task/components/TaskInfo.vue";
 
 const {t, locale} = useI18n();
 
@@ -38,6 +39,7 @@ const emit = defineEmits<{
 }>()
 
 const isModalUpdateVisible = ref(false);
+const isModalInfoVisible = ref(false);
 
 const processedDescription = computed(() => {
   if (!props.task.description) return '';
@@ -72,6 +74,14 @@ function updateTask(value: { id: number, task: Task }) {
   isModalUpdateVisible.value = false;
 }
 
+function openModal(task: Task) {
+  if (task.isDone) {
+    isModalInfoVisible.value = true;
+  } else {
+    isModalUpdateVisible.value = true;
+  }
+}
+
 const getTaskTags = () => {
   return props.task.tags as TagObject[] || [];
 }
@@ -99,14 +109,13 @@ const getTaskTagsName = () => {
           <span class="!text-xs text-[var(--color-neutral-500)]">{{ formattedDate }}
           </span>
         </div>
-        <Button icon="pi pi-pencil"
+        <Button :icon="task.isDone ? 'pi pi-info-circle' : 'pi pi-pencil'"
                 variant="text"
                 :loading
                 aria-label="Filter"
-                :disabled="task.isDone"
                 size="small"
                 rounded
-                @click="isModalUpdateVisible = true"/>
+                @click="openModal(task)"/>
         <Button icon="pi pi-trash"
                 variant="text"
                 :loading
@@ -159,5 +168,8 @@ const getTaskTagsName = () => {
 
   <Dialog v-model:visible="isModalUpdateVisible" modal :header="t('home.modal.updateTask.title')">
     <TaskForm @update="updateTask" :tags="tags" :loading :initialTask="task"/>
+  </Dialog>
+  <Dialog v-model:visible="isModalInfoVisible" modal :header="t('home.modal.infoTask.title')">
+    <TaskInfo :tags="tags" :task="task" />
   </Dialog>
 </template>

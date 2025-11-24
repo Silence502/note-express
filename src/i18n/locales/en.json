@@ -65,6 +65,12 @@
       },
       "updateTask": {
         "title": "Edit"
+      },
+      "infoTask": {
+        "title": "Information",
+        "duration": "Duration: {duration}",
+        "createdAt": "Created on: {date}",
+        "endedAt": "Completed on: {date}"
       }
     },
     "toast": {

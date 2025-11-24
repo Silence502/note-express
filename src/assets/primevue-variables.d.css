@@ -1,0 +1,93 @@
+:root {
+    /* Variables sémantiques Primary */
+    --p-primary-100: #E3E8F6;
+    --p-primary-200: #CDD8F0;
+    --p-primary-300: #ABBDE5;
+    --p-primary-400: #839dd7;
+    --p-primary-500: #657dcc;
+    --p-primary-600: #5264be;
+    --p-primary-700: #434ea3;
+    --p-primary-800: #3f458e;
+    --p-primary-900: #363d72;
+    --p-primary-1000: #252746;
+    --p-primary-1100: #22244a;
+
+    /* Variables sémantiques Green */
+    --p-green-100: #DCFFF1;
+    --p-green-200: #BAF3DB;
+    --p-green-300: #7EE2B8;
+    --p-green-400: #4BCE97;
+    --p-green-500: #2ABB7F;
+    --p-green-600: #22A06B;
+    --p-green-700: #1F845A;
+    --p-green-800: #216E4E;
+    --p-green-900: #164B35;
+    --p-green-1000: #1C3329;
+
+    /* Variables sémantiques Red */
+    --p-red-100: #ffebec;
+    --p-red-200: #FFD5D2;
+    --p-red-300: #FD9891;
+    --p-red-400: #F87168;
+    --p-red-500: #F15B50;
+    --p-red-600: #E2483D;
+    --p-red-700: #C9372C;
+    --p-red-800: #AE2E24;
+    --p-red-900: #5D1F1A;
+    --p-red-1000: #42221F;
+
+    /* Variables sémantiques Orange */
+    --p-orange-100: #fff2e6;
+    --p-orange-200: #ffd7b2;
+    --p-orange-300: #ffc48d;
+    --p-orange-400: #ffa959;
+    --p-orange-500: #ff9939;
+    --p-orange-600: #ff7f07;
+    --p-orange-700: #e87406;
+    --p-orange-800: #b55a05;
+    --p-orange-900: #8c4604;
+    --p-orange-1000: #6b3503;
+
+    /* Variables sémantiques Yellow */
+    --p-yellow-100: #FFF7D6;
+    --p-yellow-200: #F8E6A0;
+    --p-yellow-300: #F5CD47;
+    --p-yellow-400: #E2B203;
+    --p-yellow-500: #CF9F02;
+    --p-yellow-600: #B38600;
+    --p-yellow-700: #946F00;
+    --p-yellow-800: #7F5F01;
+    --p-yellow-900: #533F04;
+    --p-yellow-1000: #332E1B;
+
+    /* Variables sémantiques Neutral (Light mode) */
+    --p-neutral-0: #ffffff;
+    --p-neutral-100: #F7F8F9;
+    --p-neutral-200: #ebedf0;
+    --p-neutral-300: #dfe2e6;
+    --p-neutral-400: #b3b9c4;
+    --p-neutral-500: #8993a4;
+    --p-neutral-600: #7a8699;
+    --p-neutral-700: #5d6b82;
+    --p-neutral-800: #42526d;
+    --p-neutral-900: #243757;
+    --p-neutral-1000: #15294b;
+    --p-neutral-1100: #091e42;
+}
+
+/* Variables sémantiques pour le mode sombre */
+[data-theme="dark"] {
+    /* Variables sémantiques Neutral (Dark mode) */
+    --p-neutral-0: #dee4ea;
+    --p-neutral-100: #c7d1db;
+    --p-neutral-200: #b6c2cf;
+    --p-neutral-300: #9fadbc;
+    --p-neutral-400: #8c9bab;
+    --p-neutral-500: #738496;
+    --p-neutral-600: #596773;
+    --p-neutral-700: #454f59;
+    --p-neutral-800: #2c333a;
+    --p-neutral-900: #22272b;
+    --p-neutral-1000: #1d2125;
+    --p-neutral-1100: #101214;
+}

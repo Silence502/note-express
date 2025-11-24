@@ -65,6 +65,12 @@
       },
       "updateTask": {
         "title": "수정"
+      },
+      "infoTask": {
+        "title": "정보",
+        "duration": "소요 시간: {duration}",
+        "createdAt": "생성일: {date}",
+        "endedAt": "완료일: {date}"
       }
     },
     "toast": {

@@ -3,20 +3,30 @@
 @import url("./_vars.css");
 @import "tailwindcss";
 
-/*@custom-variant dark (&:where(.dark, .dark *));*/
-
 @theme {
-    --color-background-primary: var(--p-surface-0);
+    --color-background-primary: var(--p-neutral-0);
+    --color-background-secondary: var(--p-neutral-100);
+    --color-background-neutral: var(--p-neutral-300);
     --color-background-danger-light: var(--p-red-800);
+
+    --color-content-primary: var(--p-neutral-1000);
     --color-content-secondary: var(--p-neutral-700);
+    --color-content-information: var(--p-primary-800);
+
     --color-border-alert: var(--p-red-600);
 }
 
 @layer theme {
     .dark {
-        --color-background-primary: var(--p-surface-950);
+        --color-background-primary: var(--p-neutral-1000);
+        --color-background-secondary: var(--p-neutral-1100);
+        --color-background-neutral: var(--p-neutral-700);
         --color-background-danger-light: var(--p-red-300);
+
+        --color-content-primary: var(--p-neutral-0);
         --color-content-secondary: var(--p-neutral-500);
+        --color-content-information: var(--p-primary-300);
+
         --color-border-alert: var(--p-red-400);
     }
 }
@@ -26,7 +36,7 @@
 }
 
 body {
-    background-color: var(--color-background-primary);
+    background-color: var(--color-background-secondary);
     font-family: 'Jost', sans-serif;
     /*color: var(--el-text-color-primary);*/
     /*font-size: var(--font-size-sm);*/
@@ -68,6 +78,10 @@ body {
         flex-direction: column;
         gap: 8px;
         padding: 8px 8px 68px 8px;
+    }
+
+    .ql-editor, .ql-toolbar {
+        font-family: 'Jost', sans-serif !important;
     }
 
     .drag-over {
