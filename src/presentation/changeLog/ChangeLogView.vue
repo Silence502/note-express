@@ -39,6 +39,21 @@ const tableData = computed(() => [
     tagType: t('change-log.content.note3.tagType'),
     note: t('change-log.content.note3.note')
   },
+  {
+    type: t('change-log.content.note4.type'),
+    tagType: t('change-log.content.note4.tagType'),
+    note: t('change-log.content.note4.note')
+  },
+  {
+    type: t('change-log.content.note5.type'),
+    tagType: t('change-log.content.note5.tagType'),
+    note: t('change-log.content.note5.note')
+  },
+  {
+    type: t('change-log.content.note6.type'),
+    tagType: t('change-log.content.note6.tagType'),
+    note: t('change-log.content.note6.note')
+  },
 ])
 </script>
 
@@ -64,9 +79,7 @@ const tableData = computed(() => [
               </Tag>
             </template>
           </Column>
-          <Column field="note" header="Note">
-
-          </Column>
+          <Column field="note" header="Note"/>
         </DataTable>
       </section>
     </template>

@@ -261,7 +261,22 @@
       "note3": {
         "type": "Nouveau",
         "tagType": "success",
-        "note": "La page du journal des modifications et désormais rendue publique. Elle accessible via le numéro de version depuis le panneau des paramètres."
+        "note": "Global : La page du journal des modifications et désormais rendue publique. Elle est accessible via le numéro de version depuis le panneau des paramètres."
+      },
+      "note4": {
+        "type": "Nouveau",
+        "tagType": "success",
+        "note": "Carte de tâche : il est désormais possible de voir les informations d'une tâche terminée."
+      },
+      "note5": {
+        "type": "Nouveau",
+        "tagType": "success",
+        "note": "Carte de tâche : il est maintenant possible de marquer une tâche comme prioritaire via l'icône d'un drapeau rouge."
+      },
+      "note6": {
+        "type": "Nouveau",
+        "tagType": "success",
+        "note": "Liste de tâches : l'importation et l'exportation de la liste des tâches est est maintenant possible depuis le panneau des paramètres. Ce processus prend en compte les tags associés aux tâches."
       }
     }
   }

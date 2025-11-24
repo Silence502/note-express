@@ -262,6 +262,21 @@
         "type": "Nuevo",
         "tagType": "success",
         "note": "La página del registro de cambios ahora es pública. Es accesible mediante el número de versión desde el panel de configuración."
+      },
+      "note4": {
+        "type": "Nuevo",
+        "tagType": "success",
+        "note": "Tarjeta de tarea: ahora es posible ver la información de una tarea completada."
+      },
+      "note5": {
+        "type": "Nuevo",
+        "tagType": "success",
+        "note": "Tarjeta de tarea: ahora es posible marcar una tarea como prioritaria mediante el icono de bandera roja."
+      },
+      "note6": {
+        "type": "Nuevo",
+        "tagType": "success",
+        "note": "Lista de tareas: ahora es posible importar y exportar la lista de tareas desde el panel de configuración. Este proceso tiene en cuenta las etiquetas asociadas a las tareas."
       }
     }
   }

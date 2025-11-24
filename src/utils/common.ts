@@ -26,12 +26,16 @@ export const getIntervalWithDuration = (value: any, locale: string) => {
     const interval = Interval.fromDateTimes(createdAt, updatedAt);
     const duration = interval.toDuration(['hours', 'minutes', 'seconds']);
 
+    const seconds = Math.floor(duration.as('seconds'));
     const hours = Math.floor(duration.as('hours'));
     const minutes = Math.floor(duration.as('minutes') % 60);
 
     const parts = [];
-    parts.push(`${hours}h`);
-    parts.push(`${minutes}min`);
+    if (hours > 0) parts.push(`${hours}h`);
+    if (minutes > 0) parts.push(`${minutes}min`);
+    if (parts.length === 0) parts.push(`${seconds}s`);
+    // parts.push(`${hours}h`);
+    // parts.push(`${minutes}min`);
 
     return parts.join(' ');
 }

@@ -262,6 +262,21 @@
         "type": "Neu",
         "tagType": "success",
         "note": "Die Änderungsprotokoll-Seite ist jetzt öffentlich. Sie ist über die Versionsnummer im Einstellungsbereich zugänglich."
+      },
+      "note4": {
+        "type": "Neu",
+        "tagType": "success",
+        "note": "Aufgabenkarte: Es ist jetzt möglich, Informationen zu einer abgeschlossenen Aufgabe anzuzeigen."
+      },
+      "note5": {
+        "type": "Neu",
+        "tagType": "success",
+        "note": "Aufgabenkarte: Es ist jetzt möglich, eine Aufgabe über das rote Flaggen-Symbol als Priorität zu markieren."
+      },
+      "note6": {
+        "type": "Neu",
+        "tagType": "success",
+        "note": "Aufgabenliste: Der Import und Export der Aufgabenliste ist jetzt über das Einstellungsfeld möglich. Dieser Prozess berücksichtigt die den Aufgaben zugeordneten Tags."
       }
     }
   }

@@ -262,6 +262,21 @@
         "type": "New",
         "tagType": "success",
         "note": "The changelog page is now public. It's accessible via the version number in the settings panel."
+      },
+      "note4": {
+        "type": "New",
+        "tagType": "success",
+        "note": "Task card: it's now possible to view information for a completed task."
+      },
+      "note5": {
+        "type": "New",
+        "tagType": "success",
+        "note": "Task card: it's now possible to mark a task as priority via the red flag icon."
+      },
+      "note6": {
+        "type": "New",
+        "tagType": "success",
+        "note": "Task list: importing and exporting the task list is now possible from the settings panel. This process takes into account the tags associated with the tasks."
       }
     }
   }

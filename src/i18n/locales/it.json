@@ -262,6 +262,21 @@
         "type": "Nuovo",
         "tagType": "success",
         "note": "La pagina del registro modifiche è ora pubblica. È accessibile tramite il numero di versione dal pannello impostazioni."
+      },
+      "note4": {
+        "type": "Nuovo",
+        "tagType": "success",
+        "note": "Scheda attività: è ora possibile visualizzare le informazioni di un'attività completata."
+      },
+      "note5": {
+        "type": "Nuovo",
+        "tagType": "success",
+        "note": "Scheda attività: è ora possibile contrassegnare un'attività come prioritaria tramite l'icona della bandiera rossa."
+      },
+      "note6": {
+        "type": "Nuovo",
+        "tagType": "success",
+        "note": "Lista attività: l'importazione e l'esportazione della lista delle attività è ora possibile dal pannello impostazioni. Questo processo tiene conto dei tag associati alle attività."
       }
     }
   }
