@@ -1,10 +1,10 @@
-import { z } from 'zod';
+import {z} from 'zod';
 import {TagSchema} from "@/infrastructure/schemas/tag.schema.ts";
 
 export const TaskSchema = z.object({
     id: z.number().optional(),
-    title: z.string().max(100).nonempty(),
-    description: z.string().max(500).nullish(),
+    title: z.string().max(100, 'schema.common.maxLength').nonempty('schema.common.nonEmptyTitle'),
+    description: z.string().max(500, 'schema.common.maxLength').nullish(),
     color: z.string().optional(),
     isDone: z.boolean().default(false),
     priority: z.boolean().default(false),

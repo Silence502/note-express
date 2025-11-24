@@ -5,6 +5,13 @@
     "cancel": "キャンセル",
     "delete": "削除"
   },
+  "schema": {
+    "common": {
+      "maxLength": "タイトルは{nb}文字を超えることはできません",
+      "nonEmptyName": "名前は必須です",
+      "nonEmptyTitle": "タイトルは必須です"
+    }
+  },
   "footer": {
     "button": {
       "tags": {

@@ -2,7 +2,7 @@ import {z} from 'zod';
 
 export const TagSchema = z.object({
     id: z.number().optional(),
-    name: z.string().max(15, "Le titre ne peut pas dépasser 100 caractères").nonempty('Le titre est obligatoire'),
+    name: z.string().max(15, 'schema.common.maxLength').nonempty('schema.common.nonEmptyName'),
     color: z.string().nullable(),
 });
 

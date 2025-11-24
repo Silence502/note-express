@@ -5,6 +5,13 @@
     "cancel": "Cancel",
     "delete": "Delete"
   },
+  "schema": {
+    "common": {
+      "maxLength": "Title cannot exceed {nb} characters",
+      "nonEmptyName": "Name is required",
+      "nonEmptyTitle": "Title is required"
+    }
+  },
   "footer": {
     "button": {
       "tags": {

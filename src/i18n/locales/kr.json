@@ -5,6 +5,13 @@
     "cancel": "취소",
     "delete": "삭제"
   },
+  "schema": {
+    "common": {
+      "maxLength": "제목은 {nb}자를 초과할 수 없습니다",
+      "nonEmptyName": "이름은 필수입니다",
+      "nonEmptyTitle": "제목은 필수입니다"
+    }
+  },
   "footer": {
     "button": {
       "tags": {

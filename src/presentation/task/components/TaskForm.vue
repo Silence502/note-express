@@ -3,9 +3,8 @@ import {Form} from '@primevue/forms';
 import {FormField} from '@primevue/forms';
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
-import Textarea from 'primevue/textarea';
 import Message from 'primevue/message';
-import {computed, onMounted, ref} from "vue";
+import {ref} from "vue";
 import {zodResolver} from "@primevue/forms/resolvers/zod";
 import {type Task, type TaskInput, TaskSchema} from "@/infrastructure/schemas/task.schema.ts";
 import MultiSelect from 'primevue/multiselect';
@@ -54,7 +53,7 @@ const onFormSubmit = (event: any) => {
                  fluid
                  autofocus
                  :placeholder="t('home.modal.createTask.form.placeholder.title')"/>
-      <Message v-if="$form.title?.invalid" severity="error" size="small" variant="simple">{{ $form.title?.error?.message }}</Message>
+      <Message v-if="$form.title?.invalid" severity="error" size="small" variant="simple">{{ t($form.title?.error?.message, {nb: 100}) }}</Message>
     </FormField>
     <FormField name="description" class=""
                :schema="TaskSchema">
@@ -69,7 +68,7 @@ const onFormSubmit = (event: any) => {
           </span>
         </template>
       </Editor>
-      <Message v-if="$form.description?.invalid" severity="error" size="small" variant="simple">{{ $form.description?.error?.message }}</Message>
+      <Message v-if="$form.description?.invalid" severity="error" size="small" variant="simple">{{ t($form.description?.error?.message, {nb: 500}) }}</Message>
     </FormField>
     <FormField name="tags" :schema="TaskSchema">
       <MultiSelect v-model="selectedTags"

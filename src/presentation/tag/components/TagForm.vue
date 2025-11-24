@@ -4,9 +4,9 @@ import {FormField} from '@primevue/forms';
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
-import {computed, onMounted, ref} from "vue";
+import {ref} from "vue";
 import {zodResolver} from "@primevue/forms/resolvers/zod";
-import {type Task, TaskSchema} from "@/infrastructure/schemas/task.schema.ts";
+import {type Task} from "@/infrastructure/schemas/task.schema.ts";
 import {type Tag, type TagInput, TagSchema} from "@/infrastructure/schemas/tag.schema.ts";
 import ColorPicker from 'primevue/colorpicker';
 import {useI18n} from "vue-i18n";
@@ -53,7 +53,7 @@ const onFormSubmit = (event: any) => {
                  fluid
                  autofocus
                  :placeholder="t('tags.modal.createTag.form.placeholder.title')"/>
-      <Message v-if="$form.name?.invalid" severity="error" size="small" variant="simple">{{ $form.name?.error?.message }}</Message>
+      <Message v-if="$form.name?.invalid" severity="error" size="small" variant="simple">{{ t($form.name?.error?.message, {nb: 15}) }}</Message>
     </FormField>
     <FormField name="color"
                v-slot="$field"
