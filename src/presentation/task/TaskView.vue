@@ -40,8 +40,6 @@ const {
   loadTasks,
   deleteMultipleTasks,
   toggleTaskPriority,
-  updateFilter,
-  updatedFilter
 } = useTasks();
 
 const {
