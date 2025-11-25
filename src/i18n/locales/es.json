@@ -3,7 +3,8 @@
   "common": {
     "emptyMessage": "Ningún elemento",
     "cancel": "Cancelar",
-    "delete": "Eliminar"
+    "delete": "Eliminar",
+    "confirm": "Confirmación"
   },
   "schema": {
     "common": {
@@ -71,6 +72,9 @@
         "duration": "Duración: {duration}",
         "createdAt": "Creado el: {date}",
         "endedAt": "Completado el: {date}"
+      },
+      "confirmDelete": {
+        "content": "Esta tarea no está completada. ¿Aún quieres eliminarla?"
       }
     },
     "toast": {
@@ -277,6 +281,16 @@
         "type": "Nuevo",
         "tagType": "success",
         "note": "Lista de tareas: ahora es posible importar y exportar la lista de tareas desde el panel de configuración. Este proceso tiene en cuenta las etiquetas asociadas a las tareas."
+      },
+      "note7": {
+        "type": "Corrección",
+        "tagType": "warn",
+        "note": "Lista de etiquetas: se corrigió el menú de edición que no respondía a los cambios de idioma."
+      },
+      "note8": {
+        "type": "Mejora",
+        "tagType": "info",
+        "note": "Tarjeta de tarea: Se solicita confirmación al intentar eliminar una tarea no completada."
       }
     }
   }

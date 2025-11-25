@@ -13,8 +13,11 @@ import {contrastColor} from "@/utils/colorConstrastManager.ts";
 import Checkbox from "primevue/checkbox";
 import {useI18n} from "vue-i18n";
 import TaskInfo from "@/presentation/task/components/TaskInfo.vue";
+import { useConfirm } from "primevue/useconfirm";
+
 
 const {t, locale} = useI18n();
+const confirm = useConfirm();
 
 const props = withDefaults(defineProps<{
   task: Task;
@@ -40,6 +43,7 @@ const emit = defineEmits<{
 
 const isModalUpdateVisible = ref(false);
 const isModalInfoVisible = ref(false);
+const isModalConfirmVisible = ref(false);
 
 const processedDescription = computed(() => {
   if (!props.task.description) return '';
@@ -68,7 +72,6 @@ const formattedDate = computed(() => {
       .replace(' ', ' - ').replace(',', '');
 });
 
-
 function updateTask(value: { id: number, task: Task }) {
   emit('update', value);
   isModalUpdateVisible.value = false;
@@ -88,6 +91,12 @@ const getTaskTags = () => {
 
 const getTaskTagsName = () => {
   return getTaskTags().slice(2).map(tag => tag.name).join(', ');
+}
+
+function deleteTask(task: Task) {
+  if (!task) return;
+  if (task.isDone) return emit('delete', props.task.id as number);
+  isModalConfirmVisible.value = true;
 }
 </script>
 
@@ -123,7 +132,7 @@ const getTaskTagsName = () => {
                 aria-label="Filter"
                 size="small"
                 rounded
-                @click="$emit('delete', (task.id as number))"/>
+                @click="deleteTask(task)"/>
       </div>
     </template>
     <template #title>
@@ -158,8 +167,8 @@ const getTaskTagsName = () => {
                style="background-color: var(--p-chip-background); color: var(--p-chip-color);"/>
         </div>
         <div>
-          <Button :disabled="task.isDone" class="h-6 max-w-6" :severity="task.priority ? 'danger' : 'secondary'"
-                  variant="text" size="small"
+          <Button :disabled="task.isDone" class="h-6 w-6" :severity="task.priority ? 'danger' : 'secondary'"
+                  variant="text" size="small" rounded
                   :icon="task.priority ? 'pi pi-flag-fill' : 'pi pi-flag'"
                   @click="$emit('isPriority', task.id as number)"/>
         </div>
@@ -171,6 +180,15 @@ const getTaskTagsName = () => {
     <TaskForm @update="updateTask" :tags="tags" :loading :initialTask="task"/>
   </Dialog>
   <Dialog v-model:visible="isModalInfoVisible" modal :header="t('home.modal.infoTask.title')">
-    <TaskInfo :tags="tags" :task="task" />
+    <TaskInfo :tags="tags" :task="task"/>
+  </Dialog>
+  <Dialog v-model:visible="isModalConfirmVisible" modal :header="t('common.confirm')">
+    <section class="flex flex-col gap-2">
+      <div v-html="t('home.modal.confirmDelete.content')"></div>
+      <div class="flex justify-end gap-2 mt-2">
+        <Button size="small" :label="t('common.cancel')" severity="secondary" @click="isModalConfirmVisible = false"/>
+        <Button size="small" :label="t('common.delete')" @click="$emit('delete', task.id)" severity="danger"/>
+      </div>
+    </section>
   </Dialog>
 </template>

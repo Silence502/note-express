@@ -3,7 +3,8 @@
   "common": {
     "emptyMessage": "Nessun elemento",
     "cancel": "Annulla",
-    "delete": "Elimina"
+    "delete": "Elimina",
+    "confirm": "Conferma"
   },
   "schema": {
     "common": {
@@ -71,6 +72,9 @@
         "duration": "Durata: {duration}",
         "createdAt": "Creato il: {date}",
         "endedAt": "Completato il: {date}"
+      },
+      "confirmDelete": {
+        "content": "Questa attività non è completata. Vuoi eliminarla comunque?"
       }
     },
     "toast": {
@@ -277,6 +281,16 @@
         "type": "Nuovo",
         "tagType": "success",
         "note": "Lista attività: l'importazione e l'esportazione della lista delle attività è ora possibile dal pannello impostazioni. Questo processo tiene conto dei tag associati alle attività."
+      },
+      "note7": {
+        "type": "Correzione",
+        "tagType": "warn",
+        "note": "Lista tag: corretto il menu di modifica che non rispondeva ai cambiamenti di lingua."
+      },
+      "note8": {
+        "type": "Miglioramento",
+        "tagType": "info",
+        "note": "Scheda attività: Viene richiesta una conferma quando si tenta di eliminare un'attività non completata."
       }
     }
   }

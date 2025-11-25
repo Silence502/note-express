@@ -3,7 +3,8 @@
   "common": {
     "emptyMessage": "No items",
     "cancel": "Cancel",
-    "delete": "Delete"
+    "delete": "Delete",
+    "confirm": "Confirmation"
   },
   "schema": {
     "common": {
@@ -71,6 +72,9 @@
         "duration": "Duration: {duration}",
         "createdAt": "Created on: {date}",
         "endedAt": "Completed on: {date}"
+      },
+      "confirmDelete": {
+        "content": "This task is not completed. Do you still want to delete it?"
       }
     },
     "toast": {
@@ -277,6 +281,16 @@
         "type": "New",
         "tagType": "success",
         "note": "Task list: importing and exporting the task list is now possible from the settings panel. This process takes into account the tags associated with the tasks."
+      },
+      "note7": {
+        "type": "Fix",
+        "tagType": "warn",
+        "note": "Tags list: fixed the edit menu that was not responsive to language changes."
+      },
+      "note8": {
+        "type": "Improvement",
+        "tagType": "info",
+        "note": "Task card: A confirmation is requested when attempting to delete an uncompleted task."
       }
     }
   }

@@ -3,7 +3,8 @@
   "common": {
     "emptyMessage": "Keine Elemente",
     "cancel": "Abbrechen",
-    "delete": "Löschen"
+    "delete": "Löschen",
+    "confirm": "Bestätigung"
   },
   "schema": {
     "common": {
@@ -71,6 +72,9 @@
         "duration": "Dauer: {duration}",
         "createdAt": "Erstellt am: {date}",
         "endedAt": "Abgeschlossen am: {date}"
+      },
+      "confirmDelete": {
+        "content": "Diese Aufgabe ist nicht abgeschlossen. Möchten Sie sie trotzdem löschen?"
       }
     },
     "toast": {
@@ -277,6 +281,16 @@
         "type": "Neu",
         "tagType": "success",
         "note": "Aufgabenliste: Der Import und Export der Aufgabenliste ist jetzt über das Einstellungsfeld möglich. Dieser Prozess berücksichtigt die den Aufgaben zugeordneten Tags."
+      },
+      "note7": {
+        "type": "Korrektur",
+        "tagType": "warn",
+        "note": "Tag-Liste: Das Bearbeitungsmenü wurde korrigiert, das nicht auf Sprachänderungen reagierte."
+      },
+      "note8": {
+        "type": "Verbesserung",
+        "tagType": "info",
+        "note": "Aufgabenkarte: Beim Versuch, eine nicht abgeschlossene Aufgabe zu löschen, wird eine Bestätigung angefordert."
       }
     }
   }

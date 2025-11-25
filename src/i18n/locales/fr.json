@@ -3,7 +3,8 @@
   "common": {
     "emptyMessage": "Aucun élément",
     "cancel": "Annuler",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+    "confirm": "Confirmation"
   },
   "schema": {
     "common": {
@@ -71,6 +72,9 @@
         "duration": "Durée : {duration}",
         "createdAt": "Crée le : {date}",
         "endedAt": "Terminée le : {date}"
+      },
+      "confirmDelete": {
+        "content": "Cette tâche n'est pas terminée. Voulez-vous quand-même la supprimer ?"
       }
     },
     "toast": {
@@ -277,6 +281,16 @@
         "type": "Nouveau",
         "tagType": "success",
         "note": "Liste de tâches : l'importation et l'exportation de la liste des tâches est est maintenant possible depuis le panneau des paramètres. Ce processus prend en compte les tags associés aux tâches."
+      },
+      "note7": {
+        "type": "Correction",
+        "tagType": "warn",
+        "note": "Liste de tags : correction apporté sur le menu de modification qui n'était pas réactif au changement de langue."
+      },
+      "note8": {
+        "type": "Amélioration",
+        "tagType": "info",
+        "note": "Carte de tâche : Une confirmation est demandé lors de la tentative de suppression d'une tâche non terminée."
       }
     }
   }

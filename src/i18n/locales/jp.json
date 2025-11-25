@@ -3,7 +3,8 @@
   "common": {
     "emptyMessage": "項目なし",
     "cancel": "キャンセル",
-    "delete": "削除"
+    "delete": "削除",
+    "confirm": "確認"
   },
   "schema": {
     "common": {
@@ -71,6 +72,9 @@
         "duration": "期間: {duration}",
         "createdAt": "作成日: {date}",
         "endedAt": "完了日: {date}"
+      },
+      "confirmDelete": {
+        "content": "このタスクは完了していません。それでも削除しますか？"
       }
     },
     "toast": {
@@ -277,6 +281,16 @@
         "type": "新機能",
         "tagType": "success",
         "note": "タスク一覧：設定パネルからタスク一覧のインポートとエクスポートが可能になりました。このプロセスはタスクに関連付けられたタグを考慮します。"
+      },
+      "note7": {
+        "type": "修正",
+        "tagType": "warn",
+        "note": "タグ一覧：言語変更に反応していなかった編集メニューを修正しました。"
+      },
+      "note8": {
+        "type": "改善",
+        "tagType": "info",
+        "note": "タスクカード：完了していないタスクを削除しようとすると確認が要求されます。"
       }
     }
   }
