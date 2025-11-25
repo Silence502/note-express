@@ -154,6 +154,7 @@ const getTaskTagsName = () => {
           <Tag v-if="getTaskTags().length > 2"
                v-tooltip="`${getTaskTagsName.call(this)}`"
                :value="`+${getTaskTags().length - 2}`"
+               class="cursor-default"
                style="background-color: var(--p-chip-background); color: var(--p-chip-color);"/>
         </div>
         <div>
