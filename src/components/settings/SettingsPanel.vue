@@ -2,7 +2,7 @@
 import Select from 'primevue/select';
 import InputGroup from 'primevue/inputgroup';
 import InputGroupAddon from 'primevue/inputgroupaddon';
-import {onMounted, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import {useI18n} from "vue-i18n";
 import ToggleTheme from "@/components/ToggleTheme.vue";
 import Button from "primevue/button";
@@ -10,6 +10,9 @@ import {taskStore} from "@/stores/taskStore.ts";
 import {useDataParser} from "@/composables/dataParser.composable.ts";
 import Divider from "primevue/divider";
 import {emitter} from "@/services/eventBus.ts";
+import {useSettings} from "@/composables/settings.composable.ts";
+import ToggleSwitch from 'primevue/toggleswitch';
+
 
 const version = ref(import.meta.env.VITE_APP_VERSION)
 
@@ -22,6 +25,16 @@ const {
   importFromCSV,
   importedList
 } = useDataParser()
+
+const {
+  settings,
+  settingsValue,
+  loading,
+  error,
+  isSettingsLoading,
+  updateSettings,
+  loadSettings
+} = useSettings()
 
 const {t, locale} = useI18n();
 const useTasksStore = taskStore()
@@ -69,6 +82,21 @@ const handleFileImport = async (e: Event) => {
   });
 };
 
+const isDisplayIdChecked = computed({
+  get: () => settings.value?.displayTaskIds || false,
+  set: async (newValue: boolean) => {
+    if (settings.value) {
+      await updateSettings(settings.value.id, {displayTaskIds: newValue});
+      await loadSettings(settings.value.id);
+      emitterUpdate();
+    }
+  }
+});
+
+const handleDisplayIdChange = () => {
+  isDisplayIdChecked.value = !isDisplayIdChecked.value;
+}
+
 onMounted(() => {
   const locale = localStorage.getItem('ne_language')
   if (locale) {
@@ -80,17 +108,22 @@ onMounted(() => {
 <template>
   <section class="flex flex-col justify-end h-full gap-2">
     <div class="flex gap-2 flex-col justify-start">
-      <h3>Import - export</h3>
-      <div class="flex flex-row gap-2 justify-start items-center">
-        <input
-            type="file"
-            accept=".csv"
-            @change="handleFileImport"
-            hidden
-            ref="fileInput"
-        />
-        <Button severity="secondary" variant="text" icon="pi pi-file-import" @click="fileInput?.click()"/>
-        <Button severity="secondary" variant="text" icon="pi pi-file-export" @click="exportToCSV(useTasksStore.data)"/>
+      <div class="grid grid-cols-2 items-end gap-2">
+        <div class="flex flex-row gap-2 items-center" v-if="settingsValue">
+          <ToggleSwitch
+              id="display-id-switch"
+              :model-value="isDisplayIdChecked"
+              @update:model-value="handleDisplayIdChange">
+            <template #handle="{ checked }">
+              <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]"/>
+            </template>
+          </ToggleSwitch>
+          <label for="display-id-switch">{{ t('settings.displayId.label') }}</label>
+        </div>
+<!--        <div class="flex flex-col gap-2 items-start" v-if="settingsValue">-->
+<!--          <label for="prefix-input">{{ t('settings.prefixId.label') }}</label>-->
+<!--          <InputText id="prefix-input" :default-value="settings?.prefixId" size="small" class="w-20"/>-->
+<!--        </div>-->
       </div>
     </div>
     <Divider/>
@@ -108,6 +141,17 @@ onMounted(() => {
                 class="md:w-56"
                 @change="changeLocale(selectedLocale)"/>
       </InputGroup>
+      <div class="flex flex-row gap-1">
+        <input
+            type="file"
+            accept=".csv"
+            @change="handleFileImport"
+            hidden
+            ref="fileInput"
+        />
+        <Button severity="secondary" variant="text" icon="pi pi-file-import" @click="fileInput?.click()"/>
+        <Button severity="secondary" variant="text" icon="pi pi-file-export" @click="exportToCSV(useTasksStore.data)"/>
+      </div>
       <ToggleTheme/>
     </div>
     <section>

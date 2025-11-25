@@ -13,11 +13,14 @@ import {contrastColor} from "@/utils/colorConstrastManager.ts";
 import Checkbox from "primevue/checkbox";
 import {useI18n} from "vue-i18n";
 import TaskInfo from "@/presentation/task/components/TaskInfo.vue";
-import { useConfirm } from "primevue/useconfirm";
+import {useConfirm} from "primevue/useconfirm";
+import {settingsStore} from "@/stores/settingsStore.ts";
+import {TypeId} from "@/infrastructure/schemas/settings.schema.ts";
 
 
 const {t, locale} = useI18n();
 const confirm = useConfirm();
+const useSettingsStore = settingsStore()
 
 const props = withDefaults(defineProps<{
   task: Task;
@@ -98,6 +101,8 @@ function deleteTask(task: Task) {
   if (task.isDone) return emit('delete', props.task.id as number);
   isModalConfirmVisible.value = true;
 }
+
+const isDisplayedTaskId = computed(() => useSettingsStore.data?.displayTaskIds)
 </script>
 
 <template>
@@ -111,8 +116,12 @@ function deleteTask(task: Task) {
         @dragleave="$emit('dragleave', $event)"
         @drop="$emit('drop', $event)">
     <template #header>
-      <div class="w-full grid grid-cols-[auto_auto_auto] justify-end" :class="{'pointer-event-none': isDragging}">
-        <div class="flex gap-1 items-center justify-end mr-2">
+      <div class="w-full grid grid-cols-[1fr_auto_auto] justify-end" :class="{'pointer-event-none': isDragging}">
+        <div class="grid justify-end items-center gap-1 pl-4 pr-4" :class="useSettingsStore.data?.displayTaskIds ? 'grid-cols-[1fr_auto_auto]' : 'grid-cols-[max-content_max-content]'">
+          <div v-if="isDisplayedTaskId" class="flex flex-row justify-start">
+            <span v-if="useSettingsStore.data?.idType === TypeId.GENERATED" class="!text-xs">{{ task.createdAt.getTime() }}</span>
+            <span v-if="useSettingsStore.data?.idType === TypeId.NATIVE" class="!text-xs">{{ useSettingsStore.data?.prefixId }}{{ task.id }}</span>
+          </div>
           <i class="pi !text-[10px]"
              :class="{'pi-check-circle text-green-700': task.isDone, 'pi-minus-circle': !task.isDone}"/>
           <span class="!text-xs text-[var(--color-neutral-500)]">{{ formattedDate }}

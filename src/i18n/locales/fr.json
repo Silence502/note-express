@@ -244,6 +244,12 @@
     "locale": {
       "placeholder": "Langue",
       "label": "Langue"
+    },
+    "displayId": {
+      "label": "Afficher les IDs"
+    },
+    "prefixId": {
+      "label": "Préfixe de des IDs"
     }
   },
   "change-log": {

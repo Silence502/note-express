@@ -69,20 +69,6 @@ export function useTasks() {
     };
 
     /**
-     * Asynchronously updates the filter applied in a task repository.
-     *
-     * This function takes an array of item identifiers and updates an associated filter in the repository.
-     * The updated filter is then stored in the `updatedFilter` variable.
-     *
-     * @param {number[]} items - An array of item identifiers used to update the filter.
-     * @returns {Promise<void>} A promise that resolves once the filter has been successfully updated.
-     */
-    const updateFilter = async (items: number[]): Promise<void> => {
-        //TODO: Fonction à revoir.
-        updatedFilter.value = await taskRepository.updateFilter(items)
-    }
-
-    /**
      * Asynchronously creates a new task and updates the task list.
      *
      * This function is responsible for sending task creation data to the task repository,
@@ -300,6 +286,5 @@ export function useTasks() {
         reorderTasks,
         deleteMultipleTasks,
         toggleTaskPriority,
-        updateFilter
     };
 }

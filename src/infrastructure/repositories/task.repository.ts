@@ -1,4 +1,3 @@
-// repositories/taskRepository.ts
 import {db, type TaskRecord} from '@/infrastructure/db/database';
 import {type Task, type TaskInput, TaskSchema} from '@/infrastructure/schemas/task.schema';
 import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
@@ -40,43 +39,12 @@ export class TaskRepository {
     }
 
     /**
-     * Updates the filter records in the database with the provided list of items.
-     *
-     * @param {number[]} items - An array of numbers representing the items to be stored as filter records. Non-array values are ignored.
-     * @return {Promise<void>} A promise that resolves when the filter update operation is completed successfully.
-     * @throws {Error} Throws an error if there is an issue during the update process.
-     */
-    async updateFilter(items: number[]): Promise<void> {
-        //TODO: Fonction à revoir.
-        try {
-            await db.filterRecord.clear();
-            const cleanItems = Array.isArray(items) ? items.filter(item => true) : [];
-            await db.filterRecord.add({ items: cleanItems });
-        } catch (error) {
-            console.error('Erreur lors de la mise à jour du filtre:', error);
-            throw error;
-        }
-
-    }
-
-    /**
      * Retrieves all tasks from the database.
      *
      * @return {Promise<Task[]>} A promise that resolves to an array of Task objects.
      */
     async findAll(): Promise<Task[]> {
         return db.tasks.toArray();
-    }
-
-    /**
-     * Retrieves a task by its unique identifier.
-     *
-     * @param {string} id - The unique identifier of the task to retrieve.
-     * @return {Promise<Task | null>} A promise that resolves with the task if found, or null if no task matches the provided id.
-     */
-    async findById(id: number): Promise<Task | null> {
-        const task = await db.tasks.get(id);
-        return task || null;
     }
 
     /**
@@ -192,7 +160,7 @@ export class TaskRepository {
      * @return {Promise<void>} A promise that resolves when the reordering operation is complete.
      */
     async reorderTasks(taskIds: number[]): Promise<void> {
-        const transaction = await db.transaction('rw', db.tasks, async () => {
+        await db.transaction('rw', db.tasks, async () => {
             for (let i = 0; i < taskIds.length; i++) {
                 await db.tasks.update(taskIds[i], {
                     position: i,

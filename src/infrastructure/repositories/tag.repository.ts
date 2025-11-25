@@ -1,4 +1,3 @@
-// repositories/taskRepository.ts
 import {db, type TagRecord} from '@/infrastructure/db/database';
 import {type Tag, type TagInput, TagSchema} from "@/infrastructure/schemas/tag.schema.ts";
 
@@ -101,7 +100,7 @@ export class TagRepository {
      * Deletes a tag from the database by its ID.
      *
      * @param {number} id - The ID of the tag to be deleted.
-     * @return {Promise<boolean
+     * @return {Promise<boolean}
      */
     async delete(id: number): Promise<boolean> {
         if (!id) {
