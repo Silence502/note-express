@@ -1,15 +1,23 @@
 <script setup lang="ts">
 import {RouterView} from 'vue-router'
-import TaskView from "@/presentation/task/TaskView.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
 import FooterComponent from "@/components/FooterComponent.vue";
 import {onMounted} from "vue";
 import Toast from "primevue/toast";
-import ProgressBar from "primevue/progressbar";
+import {settingsStore} from "@/stores/settingsStore.ts";
+import {useSettings} from "@/composables/settings.composable.ts";
 
 const html = document.getElementsByTagName('html')[0]
 
+const useSettingsStore = settingsStore()
+
+const {
+  settings,
+} = useSettings()
+
 onMounted(() => {
+  if (!settings.value)
+    useSettingsStore.setData(settings.value)
   const theme = localStorage.getItem('ne_theme')
   if (theme === 'dark') {
     html!.classList.add('dark');
