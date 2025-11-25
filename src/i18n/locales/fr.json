@@ -285,12 +285,12 @@
       "note7": {
         "type": "Correction",
         "tagType": "warn",
-        "note": "Liste de tags : correction apporté sur le menu de modification qui n'était pas réactif au changement de langue."
+        "note": "Liste de tags : correction apportée sur le menu de modification qui n'était pas réactif au changement de langue."
       },
       "note8": {
         "type": "Amélioration",
         "tagType": "info",
-        "note": "Carte de tâche : Une confirmation est demandé lors de la tentative de suppression d'une tâche non terminée."
+        "note": "Carte de tâche : Une confirmation est demandée lors de la tentative de suppression d'une tâche non terminée."
       }
     }
   }
