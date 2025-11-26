@@ -155,7 +155,7 @@ onMounted(() => {
           <div class="flex flex-col gap-2 w-full">
             <label for="type-input">
               {{ t('settings.typeId.label') }}
-              <i class="!text-xs ml-2 pi pi-info-circle" v-tooltip="settings?.idType === TypeId.GENERATED ? t('settings.typeId.select.generated.info') : t('settings.typeId.select.native.info')"/>
+              <i class="!text-xs ml-2 pi pi-info-circle" v-tooltip.rigth="settings?.idType === TypeId.GENERATED ? t('settings.typeId.select.generated.info') : t('settings.typeId.select.native.info')"/>
             </label>
             <Select size="small"
                     id="type-input"
@@ -175,7 +175,7 @@ onMounted(() => {
             <FormField class="flex flex-col gap-2" name="prefixId" :schema="SettingsSchema">
               <label for="prefix-input">
                 {{ t('settings.prefixId.label') }}
-                <i class="!text-xs ml-2 pi pi-info-circle" v-tooltip="t('settings.typeId.info')"/>
+                <i class="!text-xs ml-2 pi pi-info-circle" v-tooltip.left="t('settings.typeId.info')"/>
               </label>
               <InputText fluid :disabled="settings?.idType === TypeId.GENERATED || !settings?.displayTaskIds"
                          id="prefix-input"
