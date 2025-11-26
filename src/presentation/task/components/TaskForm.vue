@@ -84,7 +84,7 @@ const onFormSubmit = (event: any) => {
                    :maxSelectedLabels="2"
                    class="w-full md:w-80"/>
     </FormField>
-    <div v-if="initialTask && useSettingsStore.data" class="text-content-secondary">{{t('common.idLabel')}}<span class="font-medium">{{useSettingsStore.data!.idType === TypeId.GENERATED ? initialTask.idGenerated : `${useSettingsStore.data!.prefixId}${initialTask.id}`}}</span></div>
+    <div v-if="initialTask && useSettingsStore.data" class="text-content-secondary">{{t('common.idLabel')}} <span class="font-medium">{{useSettingsStore.data!.idType === TypeId.GENERATED ? initialTask.idGenerated : `${useSettingsStore.data!.prefixId}${initialTask.id}`}}</span></div>
     <div class="flex justify-end gap-2">
       <Button type="submit"
               :loading
