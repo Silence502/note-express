@@ -134,15 +134,15 @@ const copyToClipboard = async (text: string) => {
       <div class="w-full grid grid-cols-[1fr_auto_auto] justify-end" :class="{'pointer-event-none': isDragging}">
         <div class="grid justify-end items-center gap-1 pl-4 pr-4" :class="useSettingsStore.data?.displayTaskIds ? 'grid-cols-[1fr_auto_auto]' : 'grid-cols-[max-content_max-content]'">
           <div v-if="isDisplayedTaskId" class="flex flex-row justify-start">
-            <span v-if="useSettingsStore.data?.idType === TypeId.GENERATED"
+            <span v-show="!isCopied" v-if="useSettingsStore.data?.idType === TypeId.GENERATED"
                   class="!text-xs cursor-pointer hover:underline"
                   @click="copyToClipboard(task.idGenerated)">{{ task.idGenerated }}
             </span>
-            <span v-if="useSettingsStore.data?.idType === TypeId.NATIVE"
+            <span v-show="!isCopied" v-if="useSettingsStore.data?.idType === TypeId.NATIVE"
                   class="!text-xs cursor-pointer hover:underline"
                   @click="copyToClipboard(`${useSettingsStore.data?.prefixId}${task.id}`)">{{ useSettingsStore.data?.prefixId }}{{ task.id }}
             </span>
-            <span v-show="isCopied" class="!text-xs text-content-positive-light ml-2">{{t('home.toast.clipboard')}}</span>
+            <span v-show="isCopied" class="!text-xs text-content-positive-light">{{t('home.toast.clipboard')}}</span>
           </div>
           <i class="pi !text-[10px]"
              :class="{'pi-check-circle text-green-700': task.isDone, 'pi-minus-circle': !task.isDone}"/>

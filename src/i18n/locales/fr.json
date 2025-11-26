@@ -258,11 +258,11 @@
       "select": {
         "native": {
           "label": "Natif",
-          "info": "ID incrémental généré à la création de la tâche."
+          "info": "ID incrémental par défaut."
         },
         "generated": {
           "label": "Généré",
-          "info": "ID généré sur la base de la date de création de la tâche sous forme de timestamp."
+          "info": "ID unique de 9 caractères généré sur la base de chiffres et de lettres."
         }
       }
     }
@@ -312,6 +312,11 @@
         "type": "Amélioration",
         "tagType": "info",
         "note": "Carte de tâche : Une confirmation est demandée lors de la tentative de suppression d'une tâche non terminée."
+      },
+      "note9": {
+        "type": "Nouveau",
+        "tagType": "success",
+        "note": "Paramètres : Il est désormais possible d'afficher l'ID technique des tâches. Le choix est donné entre l'ID \"natif\" technique généré par défaut à la création de la tâche dont il est possible de modifier le préfixe, ou un ID unique \"généré\" construit sur la base de chiffres et de lettres. Dans la liste des tâche, un click sur l'ID permet de le copier."
       }
     }
   }

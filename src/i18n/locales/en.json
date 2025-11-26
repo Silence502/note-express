@@ -258,11 +258,11 @@
       "select": {
         "native": {
           "label": "Native",
-          "info": "Incremental ID generated when the task is created."
+          "info": "Default incremental ID."
         },
         "generated": {
           "label": "Generated",
-          "info": "ID generated based on the task creation date as a timestamp."
+          "info": "Unique 9-character ID generated based on numbers and letters."
         }
       }
     }
@@ -312,6 +312,11 @@
         "type": "Improvement",
         "tagType": "info",
         "note": "Task card: A confirmation is requested when attempting to delete an uncompleted task."
+      },
+      "note9": {
+        "type": "New",
+        "tagType": "success",
+        "note": "Settings: It is now possible to display the technical ID of tasks. The choice is between the default \"native\" technical ID generated when the task is created (whose prefix can be modified), or a unique \"generated\" ID built from numbers and letters. In the task list, clicking on the ID copies it."
       }
     }
   }

@@ -258,11 +258,11 @@
       "select": {
         "native": {
           "label": "Nativo",
-          "info": "ID incremental generado al crear la tarea."
+          "info": "ID incremental por defecto."
         },
         "generated": {
           "label": "Generado",
-          "info": "ID generado basado en la fecha de creación de la tarea como timestamp."
+          "info": "ID único de 9 caracteres generado a base de números y letras."
         }
       }
     }
@@ -312,6 +312,11 @@
         "type": "Mejora",
         "tagType": "info",
         "note": "Tarjeta de tarea: Se solicita confirmación al intentar eliminar una tarea no completada."
+      },
+      "note9": {
+        "type": "Nuevo",
+        "tagType": "success",
+        "note": "Configuración: Ahora es posible mostrar el ID técnico de las tareas. Se puede elegir entre el ID técnico \"nativo\" generado por defecto al crear la tarea (cuyo prefijo se puede modificar), o un ID único \"generado\" construido a base de números y letras. En la lista de tareas, al hacer clic en el ID se copia."
       }
     }
   }

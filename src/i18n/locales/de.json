@@ -258,11 +258,11 @@
       "select": {
         "native": {
           "label": "Native",
-          "info": "Inkrementelle ID, die bei der Erstellung der Aufgabe generiert wird."
+          "info": "Standardmäßige inkrementelle ID."
         },
         "generated": {
           "label": "Generiert",
-          "info": "ID, die auf dem Erstellungsdatum der Aufgabe als Zeitstempel basiert."
+          "info": "Eindeutige 9-stellige ID, die auf Zahlen und Buchstaben basiert."
         }
       }
     }
@@ -312,6 +312,11 @@
         "type": "Verbesserung",
         "tagType": "info",
         "note": "Aufgabenkarte: Beim Versuch, eine nicht abgeschlossene Aufgabe zu löschen, wird eine Bestätigung angefordert."
+      },
+      "note9": {
+        "type": "Neu",
+        "tagType": "success",
+        "note": "Einstellungen: Es ist jetzt möglich, die technische ID der Aufgaben anzuzeigen. Die Wahl besteht zwischen der standardmäßig \"nativen\" technischen ID, die bei der Erstellung der Aufgabe generiert wird (deren Präfix geändert werden kann), oder einer eindeutigen \"generierten\" ID, die aus Zahlen und Buchstaben besteht. In der Aufgabenliste wird die ID durch Klicken kopiert."
       }
     }
   }

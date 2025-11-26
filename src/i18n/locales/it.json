@@ -258,11 +258,11 @@
       "select": {
         "native": {
           "label": "Nativo",
-          "info": "ID incrementale generato alla creazione dell'attività."
+          "info": "ID incrementale predefinito."
         },
         "generated": {
           "label": "Generato",
-          "info": "ID generato in base alla data di creazione dell'attività come timestamp."
+          "info": "ID univoco di 9 caratteri generato basandosi su numeri e lettere."
         }
       }
     }
@@ -312,6 +312,11 @@
         "type": "Miglioramento",
         "tagType": "info",
         "note": "Scheda attività: Viene richiesta una conferma quando si tenta di eliminare un'attività non completata."
+      },
+      "note9": {
+        "type": "Nuovo",
+        "tagType": "success",
+        "note": "Impostazioni: Ora è possibile visualizzare l'ID tecnico delle attività. La scelta è tra l'ID tecnico \"nativo\" generato per impostazione predefinita alla creazione dell'attività (il cui prefisso può essere modificato), o un ID unico \"generato\" costruito con numeri e lettere. Nell'elenco delle attività, cliccando sull'ID lo si copia."
       }
     }
   }

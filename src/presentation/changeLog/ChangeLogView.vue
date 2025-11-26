@@ -64,6 +64,11 @@ const tableData = computed(() => [
     tagType: t('change-log.content.note8.tagType'),
     note: t('change-log.content.note8.note')
   },
+  {
+    type: t('change-log.content.note9.type'),
+    tagType: t('change-log.content.note9.tagType'),
+    note: t('change-log.content.note9.note')
+  },
 ])
 </script>
 
