@@ -16,6 +16,7 @@ import ConfirmPopup from 'primevue/confirmpopup';
 import { useConfirm } from "primevue/useconfirm";
 import ProgressBar from "primevue/progressbar";
 import {emitter} from "@/services/eventBus.ts";
+import {settingsStore} from "@/stores/settingsStore.ts";
 
 //HOOKS
 
@@ -46,6 +47,7 @@ const {
   tags
 } = useTag()
 const {t, locale} = useI18n();
+const useSettingsStore = settingsStore()
 
 //REF
 

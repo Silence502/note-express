@@ -11,8 +11,11 @@ import MultiSelect from 'primevue/multiselect';
 import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
 import {useI18n} from "vue-i18n";
 import Editor from 'primevue/editor';
+import {TypeId, type UserSettings} from "@/infrastructure/schemas/settings.schema.ts";
+import {settingsStore} from "@/stores/settingsStore.ts";
 
 const {t, locale} = useI18n();
+const useSettingsStore = settingsStore()
 
 const props = withDefaults(defineProps<{
   loading: boolean;
@@ -81,6 +84,7 @@ const onFormSubmit = (event: any) => {
                    :maxSelectedLabels="2"
                    class="w-full md:w-80"/>
     </FormField>
+    <div v-if="initialTask && useSettingsStore.data" class="text-content-secondary">{{t('common.idLabel')}}<span class="font-medium">{{useSettingsStore.data!.idType === TypeId.GENERATED ? initialTask.idGenerated : `${useSettingsStore.data!.prefixId}${initialTask.id}`}}</span></div>
     <div class="flex justify-end gap-2">
       <Button type="submit"
               :loading

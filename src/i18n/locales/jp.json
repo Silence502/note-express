@@ -4,7 +4,8 @@
     "emptyMessage": "項目なし",
     "cancel": "キャンセル",
     "delete": "削除",
-    "confirm": "確認"
+    "confirm": "確認",
+    "idLabel": "ID:"
   },
   "schema": {
     "common": {

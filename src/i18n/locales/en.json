@@ -4,7 +4,8 @@
     "emptyMessage": "No items",
     "cancel": "Cancel",
     "delete": "Delete",
-    "confirm": "Confirmation"
+    "confirm": "Confirmation",
+    "idLabel": "ID:"
   },
   "schema": {
     "common": {

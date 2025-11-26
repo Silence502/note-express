@@ -38,7 +38,7 @@ const description = computed(() => props.task.description ?? undefined)
     </div>
     <Divider/>
     <div class="flex flex-col items-end">
-      <div class="text-content-secondary">ID: <span class="font-medium">{{settings!.idType === TypeId.GENERATED ? task.idGenerated : `${settings!.prefixId}${task.id}`}}</span></div>
+      <div class="text-content-secondary">{{t('common.idLabel')}}<span class="font-medium">{{settings!.idType === TypeId.GENERATED ? task.idGenerated : `${settings!.prefixId}${task.id}`}}</span></div>
       <div class="text-content-secondary">{{ t('home.modal.infoTask.createdAt') }}<span class="font-medium">{{DateTime.fromJSDate(task.createdAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED)}}</span></div>
       <div class="text-content-secondary">{{ t('home.modal.infoTask.endedAt') }}<span class="font-medium">{{DateTime.fromJSDate(task.updatedAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED)}}</span></div>
       <div class="text-content-secondary">{{ t('home.modal.infoTask.duration') }}<span class="font-medium">{{getIntervalWithDuration(task, locale)}}</span></div>
