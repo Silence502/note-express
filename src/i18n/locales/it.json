@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "Copiato!",
       "loading": {
         "error": {
           "title": "Errore",
@@ -244,6 +245,26 @@
     "locale": {
       "placeholder": "Lingua",
       "label": "Lingua"
+    },
+    "displayId": {
+      "label": "Mostra ID"
+    },
+    "prefixId": {
+      "label": "Prefisso ID"
+    },
+    "typeId": {
+      "label": "Tipo di ID",
+      "info": "Deve essere compreso tra 2 e 3 caratteri.",
+      "select": {
+        "native": {
+          "label": "Nativo",
+          "info": "ID incrementale generato alla creazione dell'attività."
+        },
+        "generated": {
+          "label": "Generato",
+          "info": "ID generato in base alla data di creazione dell'attività come timestamp."
+        }
+      }
     }
   },
   "change-log": {

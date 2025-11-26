@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "Copied!",
       "loading": {
         "error": {
           "title": "Error",
@@ -244,6 +245,26 @@
     "locale": {
       "placeholder": "Language",
       "label": "Language"
+    },
+    "displayId": {
+      "label": "Display ID"
+    },
+    "prefixId": {
+      "label": "ID Prefix"
+    },
+    "typeId": {
+      "label": "ID Type",
+      "info": "Must be between 2 and 3 characters.",
+      "select": {
+        "native": {
+          "label": "Native",
+          "info": "Incremental ID generated when the task is created."
+        },
+        "generated": {
+          "label": "Generated",
+          "info": "ID generated based on the task creation date as a timestamp."
+        }
+      }
     }
   },
   "change-log": {

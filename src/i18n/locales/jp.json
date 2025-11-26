@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "コピーしました！",
       "loading": {
         "error": {
           "title": "エラー",
@@ -244,6 +245,26 @@
     "locale": {
       "placeholder": "言語",
       "label": "言語"
+    },
+    "displayId": {
+      "label": "IDを表示"
+    },
+    "prefixId": {
+      "label": "IDプレフィックス"
+    },
+    "typeId": {
+      "label": "IDタイプ",
+      "info": "2〜3文字である必要があります。",
+      "select": {
+        "native": {
+          "label": "ネイティブ",
+          "info": "タスク作成時に生成されるインクリメンタルID。"
+        },
+        "generated": {
+          "label": "生成",
+          "info": "タイムスタンプ形式のタスク作成日付に基づいて生成されるID。"
+        }
+      }
     }
   },
   "change-log": {

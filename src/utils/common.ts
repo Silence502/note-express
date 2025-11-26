@@ -60,3 +60,7 @@ export const getIntervalWithDuration = (value: any, locale: string) => {
 
     return parts.join(' ');
 }
+
+export const idGeneration = (value: Date) => {
+    return value.getTime().toString(36).padStart(10, Math.random().toString().slice(1, 10)).substring(1, 10).toUpperCase()
+}

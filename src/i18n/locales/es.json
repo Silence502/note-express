@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "¡Copiado!",
       "loading": {
         "error": {
           "title": "Error",
@@ -244,6 +245,26 @@
     "locale": {
       "placeholder": "Idioma",
       "label": "Idioma"
+    },
+    "displayId": {
+      "label": "Mostrar ID"
+    },
+    "prefixId": {
+      "label": "Prefijo del ID"
+    },
+    "typeId": {
+      "label": "Tipo de ID",
+      "info": "Debe tener entre 2 y 3 caracteres.",
+      "select": {
+        "native": {
+          "label": "Nativo",
+          "info": "ID incremental generado al crear la tarea."
+        },
+        "generated": {
+          "label": "Generado",
+          "info": "ID generado basado en la fecha de creación de la tarea como timestamp."
+        }
+      }
     }
   },
   "change-log": {

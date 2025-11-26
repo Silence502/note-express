@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "복사됨!",
       "loading": {
         "error": {
           "title": "오류",
@@ -244,6 +245,26 @@
     "locale": {
       "placeholder": "언어",
       "label": "언어"
+    },
+    "displayId": {
+      "label": "ID 표시"
+    },
+    "prefixId": {
+      "label": "ID 접두사"
+    },
+    "typeId": {
+      "label": "ID 유형",
+      "info": "2~3자 사이여야 합니다.",
+      "select": {
+        "native": {
+          "label": "기본",
+          "info": "작업 생성 시 생성된 증분 ID."
+        },
+        "generated": {
+          "label": "생성됨",
+          "info": "타임스탬프 형태의 작업 생성 날짜를 기반으로 생성된 ID."
+        }
+      }
     }
   },
   "change-log": {

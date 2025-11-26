@@ -8,12 +8,14 @@ import {contrastColor} from "@/utils/colorConstrastManager.ts";
 import Tag from "primevue/tag";
 import Divider from "primevue/divider";
 import {getIntervalWithDuration} from "@/utils/common.ts";
+import {TypeId, type UserSettings} from "@/infrastructure/schemas/settings.schema.ts";
 
 const {t, locale} = useI18n();
 
 const props = withDefaults(defineProps<{
   task: Task;
   tags: TagObject[]
+  settings?: UserSettings | null;
 }>(), {})
 
 const description = computed(() => props.task.description ?? undefined)
@@ -36,6 +38,7 @@ const description = computed(() => props.task.description ?? undefined)
     </div>
     <Divider/>
     <div class="flex flex-col items-end">
+      <div class="text-content-secondary">ID: {{settings!.idType === TypeId.GENERATED ? task.idGenerated : `${settings!.prefixId}${task.id}`}}</div>
       <div class="text-content-secondary">{{ t('home.modal.infoTask.createdAt') }}<span class="font-medium">{{DateTime.fromJSDate(task.createdAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED)}}</span></div>
       <div class="text-content-secondary">{{ t('home.modal.infoTask.endedAt') }}<span class="font-medium">{{DateTime.fromJSDate(task.updatedAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED)}}</span></div>
       <div class="text-content-secondary">{{ t('home.modal.infoTask.duration') }}<span class="font-medium">{{getIntervalWithDuration(task, locale)}}</span></div>

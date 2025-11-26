@@ -10,6 +10,7 @@ export const TaskSchema = z.object({
     priority: z.boolean().default(false),
     position: z.number().int().min(-1).optional(),
     tags: z.array(TagSchema).nullable().default([]),
+    idGenerated: z.string().default(() => new Date().getTime().toString(36).padStart(10, Math.random().toString().slice(1, 10)).substring(1, 10).toUpperCase()),
     createdAt: z.date().default(() => new Date()),
     updatedAt: z.date().default(() => new Date())
 });

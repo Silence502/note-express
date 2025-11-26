@@ -1,6 +1,7 @@
 import {db, type TaskRecord} from '@/infrastructure/db/database';
 import {type Task, type TaskInput, TaskSchema} from '@/infrastructure/schemas/task.schema';
 import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
+import {idGeneration} from "@/utils/common.ts";
 
 export class TaskRepository {
     /**
@@ -114,6 +115,9 @@ export class TaskRepository {
             ...taskData,
             updatedAt: new Date()
         };
+
+        if (!updatedTask.idGenerated)
+            updatedTask.idGenerated = idGeneration(updatedTask.createdAt)
 
         const validatedTask = TaskSchema.parse(updatedTask);
         await db.tasks.update(id, validatedTask);

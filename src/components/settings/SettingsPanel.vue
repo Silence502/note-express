@@ -12,7 +12,12 @@ import Divider from "primevue/divider";
 import {emitter} from "@/services/eventBus.ts";
 import {useSettings} from "@/composables/settings.composable.ts";
 import ToggleSwitch from 'primevue/toggleswitch';
-
+import InputText from "primevue/inputtext";
+import {SettingsSchema, TypeId} from "@/infrastructure/schemas/settings.schema.ts";
+import {zodResolver} from "@primevue/forms/resolvers/zod";
+import {Form} from "@primevue/forms";
+import {FormField} from "@primevue/forms";
+import Message from "primevue/message";
 
 const version = ref(import.meta.env.VITE_APP_VERSION)
 
@@ -41,6 +46,7 @@ const useTasksStore = taskStore()
 
 const fileInput = ref<HTMLInputElement | null>(null);
 const selectedLocale = ref();
+const settingsResolver = ref(zodResolver(SettingsSchema, undefined, {raw: true}))
 const locales = ref([
   {name: 'FR', code: 'fr'},
   {name: 'EN', code: 'en'},
@@ -97,6 +103,31 @@ const handleDisplayIdChange = () => {
   isDisplayIdChecked.value = !isDisplayIdChecked.value;
 }
 
+const options = computed(() => {
+  return [
+    {label: t('settings.typeId.select.native.label'), value: TypeId.NATIVE},
+    {label: t('settings.typeId.select.generated.label'), value: TypeId.GENERATED},
+  ]
+  // return Object.values(TypeId).map(type => ({label: type, value: type}))
+})
+
+const isTypeIdChange = computed({
+  get: () => settings.value?.idType || TypeId.NATIVE,
+  set: async (newValue: TypeId) => {
+    if (settings.value) {
+      await updateSettings(settings.value.id, {idType: newValue});
+      await loadSettings(settings.value.id);
+      emitterUpdate();
+    }
+  }
+});
+
+const onPrefixSubmit = (event: any) => {
+  if (settingsValue.value) {
+    updateSettings(settingsValue.value.id, {prefixId: String(event.values.prefixId).toUpperCase()})
+  }
+}
+
 onMounted(() => {
   const locale = localStorage.getItem('ne_language')
   if (locale) {
@@ -108,7 +139,7 @@ onMounted(() => {
 <template>
   <section class="flex flex-col justify-end h-full gap-2">
     <div class="flex gap-2 flex-col justify-start">
-      <div class="grid grid-cols-2 items-end gap-2">
+      <div class="grid grid-rows-2 items-end gap-4">
         <div class="flex flex-row gap-2 items-center" v-if="settingsValue">
           <ToggleSwitch
               id="display-id-switch"
@@ -120,10 +151,47 @@ onMounted(() => {
           </ToggleSwitch>
           <label for="display-id-switch">{{ t('settings.displayId.label') }}</label>
         </div>
-<!--        <div class="flex flex-col gap-2 items-start" v-if="settingsValue">-->
-<!--          <label for="prefix-input">{{ t('settings.prefixId.label') }}</label>-->
-<!--          <InputText id="prefix-input" :default-value="settings?.prefixId" size="small" class="w-20"/>-->
-<!--        </div>-->
+        <div class="grid grid-cols-2 gap-2 items-center" v-if="settingsValue">
+          <div class="flex flex-col gap-2 w-full">
+            <label for="type-input">
+              {{ t('settings.typeId.label') }}
+              <i class="!text-xs ml-2 pi pi-info-circle" v-tooltip="settings?.idType === TypeId.GENERATED ? t('settings.typeId.select.generated.info') : t('settings.typeId.select.native.info')"/>
+            </label>
+            <Select size="small"
+                    id="type-input"
+                    :options="options"
+                    v-model="isTypeIdChange"
+                    :disabled="!settings?.displayTaskIds"
+                    optionLabel="label"
+                    optionValue="value"/>
+          </div>
+          <Form id="prefix-form"
+                name="prefixId"
+                class="flex flex-row gap-2 justify-end items-end"
+                v-slot="$form"
+                @submit="onPrefixSubmit"
+                :initialValues="settingsValue"
+                :resolver="settingsResolver">
+            <FormField class="flex flex-col gap-2" name="prefixId" :schema="SettingsSchema">
+              <label for="prefix-input">
+                {{ t('settings.prefixId.label') }}
+                <i class="!text-xs ml-2 pi pi-info-circle" v-tooltip="t('settings.typeId.info')"/>
+              </label>
+              <InputText fluid :disabled="settings?.idType === TypeId.GENERATED || !settings?.displayTaskIds"
+                         id="prefix-input"
+                         :default-value="settings?.prefixId"
+                         size="small"
+                         class="w-20 uppercase"/>
+              <Message v-if="$form.description?.invalid" severity="error" size="small" variant="simple">{{ t($form.description?.error?.message, {nb: 2}) }}</Message>
+            </FormField>
+            <Button type="submit"
+                    :disabled="$form.type?.value === null || !$form.valid || !settings?.displayTaskIds || settings?.idType === TypeId.GENERATED"
+                    class="min-w-8 h-8"
+                    size="small"
+                    severity="primary"
+                    icon="pi pi-check"/>
+          </Form>
+        </div>
       </div>
     </div>
     <Divider/>
@@ -134,6 +202,7 @@ onMounted(() => {
         </InputGroupAddon>
         <Select v-model="selectedLocale"
                 :options="locales"
+                @valueChange="isTypeIdChange"
                 size="small"
                 optionLabel="name"
                 optionValue="code"

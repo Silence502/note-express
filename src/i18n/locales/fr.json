@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "Copié !",
       "loading": {
         "error": {
           "title": "Erreur",
@@ -246,10 +247,24 @@
       "label": "Langue"
     },
     "displayId": {
-      "label": "Afficher les IDs"
+      "label": "Afficher l'ID"
     },
     "prefixId": {
-      "label": "Préfixe de des IDs"
+      "label": "Préfixe de l'ID"
+    },
+    "typeId": {
+      "label": "Type d'ID",
+      "info": "Doit se trouver entre 2 et 3 caractères.",
+      "select": {
+        "native": {
+          "label": "Natif",
+          "info": "ID incrémental généré à la création de la tâche."
+        },
+        "generated": {
+          "label": "Généré",
+          "info": "ID généré sur la base de la date de création de la tâche sous forme de timestamp."
+        }
+      }
     }
   },
   "change-log": {

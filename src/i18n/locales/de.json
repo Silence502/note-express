@@ -78,6 +78,7 @@
       }
     },
     "toast": {
+      "clipboard": "Kopiert!",
       "loading": {
         "error": {
           "title": "Fehler",
@@ -244,6 +245,26 @@
     "locale": {
       "placeholder": "Sprache",
       "label": "Sprache"
+    },
+    "displayId": {
+      "label": "ID anzeigen"
+    },
+    "prefixId": {
+      "label": "ID-Präfix"
+    },
+    "typeId": {
+      "label": "ID-Typ",
+      "info": "Muss zwischen 2 und 3 Zeichen lang sein.",
+      "select": {
+        "native": {
+          "label": "Native",
+          "info": "Inkrementelle ID, die bei der Erstellung der Aufgabe generiert wird."
+        },
+        "generated": {
+          "label": "Generiert",
+          "info": "ID, die auf dem Erstellungsdatum der Aufgabe als Zeitstempel basiert."
+        }
+      }
     }
   },
   "change-log": {
