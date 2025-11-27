@@ -121,7 +121,6 @@ const copyToClipboard = async (text: string) => {
 };
 
 const formDirty = (value: boolean) => {
-  console.log('value', value)
   modalCloseConfirmed.value = value;
 }
 
