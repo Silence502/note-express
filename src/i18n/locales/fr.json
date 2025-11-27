@@ -327,7 +327,7 @@
       "note10": {
         "type": "Amélioration",
         "tagType": "info",
-        "note": "Création et édition de tâche : Un bouton 'Annuler' a été ajouté au formulaire. Quitter la boite de dialogue lorsque le formulaire est en train d'être modifié doit être validé dans une popup de confirmation."
+        "note": "Création et édition de tâche : Un bouton 'Annuler' a été ajouté au formulaire. Quitter la boite de dialogue lorsque le formulaire est en train d'être modifié doit être validé par une popup de confirmation."
       }
     }
   }
