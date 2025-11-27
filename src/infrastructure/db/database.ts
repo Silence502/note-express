@@ -27,8 +27,8 @@ export class TaskDatabase extends Dexie {
 
     constructor() {
         super('noteExpressV2');
-        this.version(2).stores({
-            tasks: '++id, title, isDone, position, tags, priority, idGenerated, createdAt, updatedAt',
+        this.version(3).stores({
+            tasks: '++id, title, isDone, position, tags, priority, idGenerated, createdAt, updatedAt, timer, description, isTimerRunning, isTimerPaused, isTimerStopped',
             tags: '++id, name, color, createdAt, updatedAt',
             itemTagRecord: '++id, itemId, tagId',
             filterRecord: '++id, items',

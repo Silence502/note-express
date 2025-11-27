@@ -16,6 +16,7 @@ import TaskInfo from "@/presentation/task/components/TaskInfo.vue";
 import {useConfirm} from "primevue/useconfirm";
 import {settingsStore} from "@/stores/settingsStore.ts";
 import {TypeId} from "@/infrastructure/schemas/settings.schema.ts";
+import ProgressBar from "primevue/progressbar";
 
 
 const {t, locale} = useI18n();
@@ -77,6 +78,8 @@ const formattedDate = computed(() => {
       .toLocaleString(DateTime.DATETIME_SHORT)
       .replace(' ', ' - ').replace(',', '');
 });
+
+const timerIcon = computed(() => props.task.isTimerRunning ? 'pi pi-pause-circle' : 'pi pi-play-circle');
 
 function updateTask(value: { id: number, task: Task }) {
   emit('update', value);
@@ -199,12 +202,14 @@ const requireConfirmation = () => {
                 @click="deleteTask(task)"/>
       </div>
     </template>
+
     <template #title>
       <div class="flex gap-2 items-start" :class="{'pointer-event-none': isDragging}">
         <Checkbox v-model="task.isDone" @change="$emit('isDone', task.id as number)" binary/>
         <h4 class="text-sm" :class="{'line-through': task.isDone}">{{ task.title }}</h4>
       </div>
     </template>
+
     <template #content>
       <div
           v-if="task.description"
@@ -214,10 +219,10 @@ const requireConfirmation = () => {
       >
       </div>
     </template>
+
     <template #footer>
       <Divider :class="{'!pointer-event-none': isDragging}"/>
-      <div
-          class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center" :class="{'pointer-event-none': isDragging}">
+      <div class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center" :class="{'pointer-event-none': isDragging}">
         <div class="flex gap-1 items-center">
           <Tag v-for="tag in getTaskTags().slice(0, 2)"
                :key="tag.id as number"
@@ -231,6 +236,14 @@ const requireConfirmation = () => {
                style="background-color: var(--p-chip-background); color: var(--p-chip-color);"/>
         </div>
         <div>
+          <Button :icon="timerIcon"
+                  variant="text"
+                  :severity="task.isTimerRunning ? 'warn' : 'secondary'"
+                  size="small"
+                  @click="() => {
+                    task.isTimerRunning=!task.isTimerRunning;
+                  }"
+                  rounded/>
           <Button :disabled="task.isDone" class="h-6 w-6" :severity="task.priority ? 'danger' : 'secondary'"
                   variant="text" size="small" rounded
                   :icon="task.priority ? 'pi pi-flag-fill' : 'pi pi-flag'"
@@ -239,6 +252,13 @@ const requireConfirmation = () => {
       </div>
     </template>
   </Card>
+
+
+
+
+
+
+
 
   <Dialog :closeOnEscape="false" v-model:visible="isModalUpdateVisible" modal :header="t('home.modal.updateTask.title')">
     <template #closebutton>
