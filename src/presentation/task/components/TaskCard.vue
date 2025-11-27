@@ -99,7 +99,7 @@ const getTaskTags = () => {
 }
 
 const getTaskTagsName = () => {
-  return getTaskTags().slice(2).map(tag => tag.name).join(', ');
+  return getTaskTags().slice(4).map(tag => tag.name).join(', ');
 }
 
 function deleteTask(task: Task) {
@@ -222,16 +222,16 @@ const requireConfirmation = () => {
 
     <template #footer>
       <Divider :class="{'!pointer-event-none': isDragging}"/>
-      <div class="text-neutral-600 w-full text-end text-xs grid grid-cols-[auto_1fr] gap-1 justify-between items-center" :class="{'pointer-event-none': isDragging}">
-        <div class="flex gap-1 items-center">
-          <Tag v-for="tag in getTaskTags().slice(0, 2)"
+      <div class="text-content-secondary w-full text-end text-xs grid grid-cols-[auto_max-content] gap-1 justify-between items-end" :class="{'pointer-event-none': isDragging}">
+        <div class="flex gap-1 flex-wrap items-center h-full">
+          <Tag v-for="tag in getTaskTags().slice(0, 4)"
                :key="tag.id as number"
                :value="tag.name"
                :style="{backgroundColor: `#${tag.color}`, color: `${contrastColor(tag.color as string)}`}"/>
 
           <Tag v-if="getTaskTags().length > 2"
                v-tooltip="`${getTaskTagsName.call(this)}`"
-               :value="`+${getTaskTags().length - 2}`"
+               :value="`+${getTaskTags().length - 4}`"
                class="cursor-default"
                style="background-color: var(--p-chip-background); color: var(--p-chip-color);"/>
         </div>
