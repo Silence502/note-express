@@ -5,7 +5,9 @@
     "cancel": "Annuler",
     "delete": "Supprimer",
     "confirm": "Confirmation",
-    "idLabel": "ID :"
+    "idLabel": "ID :",
+    "negative": "Non",
+    "affirmative": "Oui"
   },
   "schema": {
     "common": {
@@ -66,7 +68,10 @@
         }
       },
       "updateTask": {
-        "title": "Modifier"
+        "title": "Modifier",
+        "confirmClose": {
+          "message": "Voulez-vous annuler les modifications en cours ?"
+        }
       },
       "infoTask": {
         "title": "Informations",

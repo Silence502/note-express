@@ -66,7 +66,10 @@
         }
       },
       "updateTask": {
-        "title": "Bearbeiten"
+        "title": "Bearbeiten",
+        "confirmClose": {
+          "message": "Möchten Sie die aktuellen Änderungen abbrechen?"
+        }
       },
       "infoTask": {
         "title": "Informationen",

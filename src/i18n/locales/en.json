@@ -66,7 +66,10 @@
         }
       },
       "updateTask": {
-        "title": "Edit"
+        "title": "Edit",
+        "confirmClose": {
+          "message": "Do you want to cancel the current changes?"
+        }
       },
       "infoTask": {
         "title": "Information",

@@ -48,6 +48,7 @@ const isModalUpdateVisible = ref(false);
 const isModalInfoVisible = ref(false);
 const isModalConfirmVisible = ref(false);
 const isCopied = ref(false);
+const modalCloseConfirmed = ref(false);
 
 const isDisplayedTaskId = computed(() => useSettingsStore.data?.displayTaskIds)
 const processedDescription = computed(() => {
@@ -118,6 +119,29 @@ const copyToClipboard = async (text: string) => {
     document.body.removeChild(textArea);
   }
 };
+
+const formDirty = (value: boolean) => {
+  console.log('value', value)
+  modalCloseConfirmed.value = value;
+}
+
+const requireConfirmation = (event: any) => {
+  confirm.require({
+    message: t('home.modal.updateTask.confirmClose.message'),
+    icon: 'pi pi-exclamation-triangle',
+    acceptClass: 'p-button-danger',
+    rejectProps: {
+      label: t('common.negative'),
+      severity: 'secondary',
+    },
+    acceptProps: {
+      label: t('common.affirmative'),
+    },
+    accept: () => {
+      isModalUpdateVisible.value = false;
+    }
+  })
+}
 </script>
 
 <template>
@@ -132,7 +156,8 @@ const copyToClipboard = async (text: string) => {
         @drop="$emit('drop', $event)">
     <template #header>
       <div class="w-full grid grid-cols-[1fr_auto_auto] justify-end" :class="{'pointer-event-none': isDragging}">
-        <div class="grid justify-end items-center gap-1 pl-4 pr-4" :class="useSettingsStore.data?.displayTaskIds ? 'grid-cols-[1fr_auto_auto]' : 'grid-cols-[max-content_max-content]'">
+        <div class="grid justify-end items-center gap-1 pl-4 pr-4"
+             :class="useSettingsStore.data?.displayTaskIds ? 'grid-cols-[1fr_auto_auto]' : 'grid-cols-[max-content_max-content]'">
           <div v-if="isDisplayedTaskId" class="flex flex-row justify-start">
             <span v-show="!isCopied" v-if="useSettingsStore.data?.idType === TypeId.GENERATED"
                   class="!text-xs cursor-pointer hover:underline"
@@ -142,7 +167,7 @@ const copyToClipboard = async (text: string) => {
                   class="!text-xs cursor-pointer hover:underline"
                   @click="copyToClipboard(`${useSettingsStore.data?.prefixId}${task.id}`)">{{ useSettingsStore.data?.prefixId }}{{ task.id }}
             </span>
-            <span v-show="isCopied" class="!text-xs text-content-positive-light">{{t('home.toast.clipboard')}}</span>
+            <span v-show="isCopied" class="!text-xs text-content-positive-light">{{ t('home.toast.clipboard') }}</span>
           </div>
           <i class="pi !text-[10px]"
              :class="{'pi-check-circle text-green-700': task.isDone, 'pi-minus-circle': !task.isDone}"/>
@@ -207,8 +232,12 @@ const copyToClipboard = async (text: string) => {
     </template>
   </Card>
 
-  <Dialog v-model:visible="isModalUpdateVisible" modal :header="t('home.modal.updateTask.title')">
-    <TaskForm @update="updateTask" :tags="tags" :loading :initialTask="task"/>
+  <Dialog :closeOnEscape="false" v-model:visible="isModalUpdateVisible" modal :header="t('home.modal.updateTask.title')">
+    <template #closebutton>
+      <Button icon="pi pi-times" rounded variant="text" severity="secondary" @click="modalCloseConfirmed?requireConfirmation($event):isModalUpdateVisible = false" aria-label="Close"/>
+    </template>
+
+    <TaskForm @update="updateTask" :tags="tags" :loading :initialTask="task" @isFormDirty="formDirty"/>
   </Dialog>
   <Dialog v-model:visible="isModalInfoVisible" modal :header="t('home.modal.infoTask.title')">
     <TaskInfo :tags="tags" :task="task" :settings="useSettingsStore.data"/>

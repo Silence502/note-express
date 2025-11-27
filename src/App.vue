@@ -6,6 +6,7 @@ import {onMounted} from "vue";
 import Toast from "primevue/toast";
 import {settingsStore} from "@/stores/settingsStore.ts";
 import {useSettings} from "@/composables/settings.composable.ts";
+import ConfirmPopup from "primevue/confirmpopup";
 
 const html = document.getElementsByTagName('html')[0]
 
@@ -32,6 +33,7 @@ onMounted(() => {
     </template>
   </MainLayout>
   <FooterComponent/>
+  <ConfirmPopup />
   <Toast class="!w-[calc(100vw-40px)] !bottom-[68px]" position="bottom-left"/>
 </template>
 

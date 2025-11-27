@@ -12,7 +12,6 @@ import {useTag} from "@/composables/tag.composable.ts";
 import Divider from "primevue/divider";
 import Button from "primevue/button";
 import {useI18n} from "vue-i18n";
-import ConfirmPopup from 'primevue/confirmpopup';
 import { useConfirm } from "primevue/useconfirm";
 import ProgressBar from "primevue/progressbar";
 import {emitter} from "@/services/eventBus.ts";
@@ -296,7 +295,6 @@ onMounted(() => {
                  @update="update"
                  @delete="deleteTask"/>
       <Divider v-if="doneTasks.length" class="divider-home">
-        <ConfirmPopup style="width: calc(100% - 100px); margin: 0 50px"></ConfirmPopup>
         <Button icon="pi pi-trash" @click="deleteMultiple(doneTasks)" aria-label="Filter" variant="text" severity="danger" size="small" class=""/>
       </Divider>
       <TasksList v-if="doneTasks.length"

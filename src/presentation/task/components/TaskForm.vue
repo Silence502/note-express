@@ -11,10 +11,10 @@ import MultiSelect from 'primevue/multiselect';
 import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
 import {useI18n} from "vue-i18n";
 import Editor from 'primevue/editor';
-import {TypeId, type UserSettings} from "@/infrastructure/schemas/settings.schema.ts";
+import {TypeId} from "@/infrastructure/schemas/settings.schema.ts";
 import {settingsStore} from "@/stores/settingsStore.ts";
 
-const {t, locale} = useI18n();
+const {t} = useI18n();
 const useSettingsStore = settingsStore()
 
 const props = withDefaults(defineProps<{
@@ -26,11 +26,13 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (e: 'create', task: TaskInput): void
   (e: 'update', value: { id: number, task: Task }): void
+  (e: 'isFormDirty', value: boolean): void
 }>()
 
 const taskCreation = ref()
 const taskResolver = ref(zodResolver(TaskSchema, undefined, {raw: true}))
 const selectedTags = ref<Tag[]>([]);
+const isDirty = ref(false)
 
 const onFormSubmit = (event: any) => {
   if (props.initialTask) {
@@ -40,12 +42,24 @@ const onFormSubmit = (event: any) => {
   }
 };
 
+function resetForm(form: any) {
+  form.reset()
+  isDirty.value = false;
+  emit('isFormDirty', isDirty.value)
+}
+
+function changeForm() {
+  isDirty.value = true
+  emit('isFormDirty', isDirty.value)
+}
+
 </script>
 
 <template>
   <Form id="task-creation-form"
         ref="taskCreation"
         class="flex flex-col gap-2"
+        @input="changeForm"
         v-slot="$form"
         :initialValues="initialTask"
         @submit="onFormSubmit"
@@ -86,6 +100,13 @@ const onFormSubmit = (event: any) => {
     </FormField>
     <div v-if="initialTask && useSettingsStore.data" class="text-content-secondary">{{t('common.idLabel')}} <span class="font-medium">{{useSettingsStore.data!.idType === TypeId.GENERATED ? initialTask.idGenerated : `${useSettingsStore.data!.prefixId}${initialTask.id}`}}</span></div>
     <div class="flex justify-end gap-2">
+      <Button type="button"
+              :loading
+              severity="secondary"
+              @click="resetForm($form)"
+              :aria-label="t('home.modal.createTask.form.button.submit')"
+              :disabled="!$form.title?.dirty && !$form.description?.dirty && !$form.tags?.dirty"
+              :label="t('common.cancel')"/>
       <Button type="submit"
               :loading
               severity="primary"

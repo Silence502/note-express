@@ -66,7 +66,10 @@
         }
       },
       "updateTask": {
-        "title": "수정"
+        "title": "수정",
+        "confirmClose": {
+          "message": "현재 변경 사항을 취소하시겠습니까?"
+        }
       },
       "infoTask": {
         "title": "정보",
