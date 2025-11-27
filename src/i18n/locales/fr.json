@@ -323,6 +323,11 @@
         "type": "Nouveau",
         "tagType": "success",
         "note": "Paramètres : Il est désormais possible d'afficher l'ID technique des tâches. Le choix est donné entre l'ID \"natif\" technique généré par défaut à la création de la tâche dont il est possible de modifier le préfixe, ou un ID unique \"généré\" construit sur la base de chiffres et de lettres. Dans la liste des tâche, un click sur l'ID permet de le copier."
+      },
+      "note10": {
+        "type": "Nouveau",
+        "tagType": "success",
+        "note": "Création et édition de tâche : Un bouton 'Annuler' a été ajouté au formulaire. Quitter la boite de dialogue lorsque le formulaire est en train d'être modifié doit être validé dans une popup de confirmation."
       }
     }
   }
