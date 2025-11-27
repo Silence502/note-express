@@ -125,7 +125,15 @@ const formDirty = (value: boolean) => {
   modalCloseConfirmed.value = value;
 }
 
-const requireConfirmation = (event: any) => {
+const closeUpdateModal = () => {
+  if (modalCloseConfirmed.value) {
+    requireConfirmation()
+  } else {
+    isModalUpdateVisible.value = false;
+  }
+}
+
+const requireConfirmation = () => {
   confirm.require({
     message: t('home.modal.updateTask.confirmClose.message'),
     icon: 'pi pi-exclamation-triangle',
@@ -139,6 +147,7 @@ const requireConfirmation = (event: any) => {
     },
     accept: () => {
       isModalUpdateVisible.value = false;
+      modalCloseConfirmed.value = false;
     }
   })
 }
@@ -234,7 +243,7 @@ const requireConfirmation = (event: any) => {
 
   <Dialog :closeOnEscape="false" v-model:visible="isModalUpdateVisible" modal :header="t('home.modal.updateTask.title')">
     <template #closebutton>
-      <Button icon="pi pi-times" rounded variant="text" severity="secondary" @click="modalCloseConfirmed?requireConfirmation($event):isModalUpdateVisible = false" aria-label="Close"/>
+      <Button icon="pi pi-times" rounded variant="text" severity="secondary" @click="closeUpdateModal" aria-label="Close"/>
     </template>
 
     <TaskForm @update="updateTask" :tags="tags" :loading :initialTask="task" @isFormDirty="formDirty"/>
