@@ -3,8 +3,10 @@ import {TagSchema} from "@/infrastructure/schemas/tag.schema.ts";
 
 export const TaskPriority = z.enum(['low', 'medium', 'high']);
 export const TaskTimer = z.object({
-    start: z.date(),
-    end: z.date().nullable()
+    start: z.date().nullish(),
+    end: z.date().nullish(),
+    duration: z.string().nullish(),
+    lastSession: z.string().nullish()
 })
 
 export const TaskSchema = z.object({
@@ -26,5 +28,6 @@ export const TaskSchema = z.object({
 });
 
 export type Task = z.infer<typeof TaskSchema>;
+export type Timer = z.infer<typeof TaskTimer>;
 export type TaskInput = Omit<Task, 'id' | 'createdAt' | 'updatedAt'>;
 export type TaskImport = Omit<Task, 'id' | 'tags'>;

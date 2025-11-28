@@ -8,6 +8,7 @@
     --color-background-secondary: var(--p-neutral-100);
     --color-background-neutral: var(--p-neutral-300);
     --color-background-danger-light: var(--p-red-800);
+    --color-background-warning: var(--p-orange-700);
     --color-background-positive-light: var(--p-green-100);
 
     --color-content-positive-light: var(--p-green-800);
@@ -24,6 +25,7 @@
         --color-background-secondary: var(--p-neutral-1100);
         --color-background-neutral: var(--p-neutral-700);
         --color-background-danger-light: var(--p-red-300);
+        --color-background-warning: var(--p-orange-500);
         --color-background-positive-light: var(--p-green-800);
 
         --color-content-positive-light: var(--p-green-700);

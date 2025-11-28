@@ -16,7 +16,8 @@ import TaskInfo from "@/presentation/task/components/TaskInfo.vue";
 import {useConfirm} from "primevue/useconfirm";
 import {settingsStore} from "@/stores/settingsStore.ts";
 import {TypeId} from "@/infrastructure/schemas/settings.schema.ts";
-import ProgressBar from "primevue/progressbar";
+import {emitter} from "@/services/eventBus.ts";
+import {getTaskDuration} from "@/utils/common.ts";
 
 
 const {t, locale} = useI18n();
@@ -37,6 +38,7 @@ const props = withDefaults(defineProps<{
 const emit = defineEmits<{
   (e: 'delete', value: number | undefined): void;
   (e: 'update', value: { id: number, task: Task }): void;
+  (e: 'timer', task: Task): void;
   (e: 'isDone', value: number): void;
   (e: 'isPriority', value: number): void;
   (e: 'dragstart', event: DragEvent): void;
@@ -153,11 +155,37 @@ const requireConfirmation = () => {
     }
   })
 }
+
+function tooltipHandler(task: Task) {
+  return `
+<div class="flex flex-col">
+    <div class="font-bold">Temps</div>
+    <div><span class="font-medium">Dernière session : </span>${task.timer?.lastSession}</div>
+    <div><span class="font-medium">Durée totale : </span>${task.timer?.duration}</div>
+</div>
+`
+}
+
+const emitterTimer = (value: boolean = false) => {
+  emitter.emit('timer-running', value)
+}
+
+const timerHandler = (task: Task) => {
+  const newTask = getTaskDuration(task, locale.value)
+  emit('timer', newTask)
+
+
+  // if (task.isTimerRunning) {
+  //   emitterTimer(false)
+  // } else {
+  //   emitterTimer(true)
+  // }
+}
 </script>
 
 <template>
   <Card class="bordered task-card"
-        :class="{'no-content': task.description === null || !task.description, 'is-done': task.isDone, 'priority': task.priority }"
+        :class="{'no-content': task.description === null || !task.description, 'is-done': task.isDone, 'priority': task.priority, '!border-background-warning': task.isTimerRunning }"
         :draggable="!task.isDone && !filtered"
         :id="task.id"
         :data-id="task.id"
@@ -237,12 +265,12 @@ const requireConfirmation = () => {
         </div>
         <div>
           <Button :icon="timerIcon"
+                  v-tooltip.top="{value: task.isTimerRunning ? t('common.pause') : tooltipHandler(task), escape: false}"
                   variant="text"
                   :severity="task.isTimerRunning ? 'warn' : 'secondary'"
                   size="small"
-                  @click="() => {
-                    task.isTimerRunning=!task.isTimerRunning;
-                  }"
+                  @click="timerHandler(task)"
+                  :hidden="task.isDone"
                   rounded/>
           <Button :disabled="task.isDone" class="h-6 w-6" :severity="task.priority ? 'danger' : 'secondary'"
                   variant="text" size="small" rounded
@@ -252,12 +280,6 @@ const requireConfirmation = () => {
       </div>
     </template>
   </Card>
-
-
-
-
-
-
 
 
   <Dialog :closeOnEscape="false" v-model:visible="isModalUpdateVisible" modal :header="t('home.modal.updateTask.title')">

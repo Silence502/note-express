@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useTasks} from "@/composables/task.composable";
 import Dialog from "primevue/dialog";
-import {computed, type ComputedRef, onMounted, ref, watch} from "vue";
+import {computed, type ComputedRef, onMounted, onUnmounted, ref, watch} from "vue";
 import type {Task, TaskInput} from "@/infrastructure/schemas/task.schema";
 import TasksList from "@/presentation/task/components/TasksList.vue";
 import SectionLayout from "@/layouts/SectionLayout.vue";
@@ -78,8 +78,8 @@ const handleTaskCreated = async (taskData: TaskInput) => {
   isModalCreateVisible.value = false;
 };
 
-const handleTaskUpdate = async (id: number, taskData: Partial<TaskInput>) => {
-  await updateTask(id, taskData);
+const handleTaskUpdate = async (id: number, taskData: Partial<TaskInput>, isTimerUpdate?: boolean) => {
+  await updateTask(id, taskData, isTimerUpdate);
 };
 
 const handleSearch = (value: string) => {
@@ -249,6 +249,12 @@ function update(value: { id: number, task: Task }): void {
   }
 }
 
+function updateTimer(task: Task) {
+  if (task.id) {
+    handleTaskUpdate(task.id, task, true);
+  }
+}
+
 const handleItemsUpdate = () => {
   loadTasks(currentFilter.value);
 };
@@ -261,6 +267,10 @@ watch(tasks, (newTasks) => {
 
 onMounted(() => {
   emitter.on('update-items', handleItemsUpdate);
+})
+
+onUnmounted(() => {
+  emitter.off('update-items', handleItemsUpdate);
 })
 </script>
 
@@ -292,6 +302,7 @@ onMounted(() => {
                  :on-drag-leave="onDragLeave"
                  @isDone="toggleTaskDone"
                  @isPriority="toggleTaskPriority"
+                 @timer="updateTimer"
                  @update="update"
                  @delete="deleteTask"/>
       <Divider v-if="doneTasks.length" class="divider-home">

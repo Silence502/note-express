@@ -6,7 +6,7 @@ import {useI18n} from "vue-i18n";
 import {taskStore} from "@/stores/taskStore.ts";
 
 export function useTasks() {
-    const {t} = useI18n();
+    const {t, locale} = useI18n();
     const toast = useToast();
     const useTasks = taskStore()
 
@@ -102,19 +102,21 @@ export function useTasks() {
      * @param {string} id - The unique identifier of the task to be updated.
      * @param {Partial<TaskInput>} taskData - An object containing the fields to update in the task.
      * @param tagUpdate
+     * @param isTimerUpdate
      * @returns {Promise<Task | null>} A promise that resolves with the updated task if the operation is successful,
      *                                 or null if an error occurs or the task is not found.
      */
-    const updateTask = async (id: number, taskData: Partial<TaskInput>, tagUpdate = false): Promise<Task | null> => {
+    const updateTask = async (id: number, taskData: Partial<TaskInput>, isTimerUpdate: boolean = false, tagUpdate = false): Promise<Task | null> => {
         isEditLoading.value = true;
         error.value = null;
+
 
         try {
             const updatedTask = await taskRepository.update(id, taskData);
             if (updatedTask) {
                 await loadTasks(currentFilter.value);
             }
-            if (!tagUpdate) {
+            if (!tagUpdate && !isTimerUpdate) {
                 toast.add({severity: 'success', summary: t('home.toast.update.success.title'), detail: t('home.toast.update.success.message'), life: 1500});
             }
             return updatedTask;
@@ -140,7 +142,7 @@ export function useTasks() {
         isDoneLoading.value = true;
         error.value = null;
         try {
-            await taskRepository.toggleDone(id);
+            await taskRepository.toggleDone(id, locale.value);
             await loadTasks(currentFilter.value);
         } catch (err) {
             error.value = err instanceof Error ? err.message : 'Erreur lors du changement de statut';

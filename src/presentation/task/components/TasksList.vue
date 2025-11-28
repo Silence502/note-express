@@ -22,6 +22,7 @@ const emit = defineEmits<{
   (e: 'update', value: {id: number, task: Task}): void;
   (e: 'isDone', value: number): void;
   (e: 'isPriority', value: number): void;
+  (e: 'timer', task: Task): void;
 }>()
 </script>
 
@@ -33,6 +34,7 @@ const emit = defineEmits<{
             :filtered="filtered"
             :loading
             :isDragging="isDragging"
+            @timer="emit('timer', $event)"
             @dragover.prevent="onDragOver"
             @dragleave="onDragLeave"
             @drop.prevent="onDrop"

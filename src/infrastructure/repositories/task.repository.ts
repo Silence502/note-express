@@ -1,7 +1,7 @@
 import {db, type TaskRecord} from '@/infrastructure/db/database';
 import {type Task, type TaskInput, TaskSchema} from '@/infrastructure/schemas/task.schema';
 import type {Tag} from "@/infrastructure/schemas/tag.schema.ts";
-import {idGeneration} from "@/utils/common.ts";
+import {getTaskDuration, idGeneration} from "@/utils/common.ts";
 
 export class TaskRepository {
     /**
@@ -128,15 +128,27 @@ export class TaskRepository {
      * Toggles the `isDone` status of a task with the given ID.
      *
      * @param {string} id - The ID of the task to be updated.
+     * @param locale
      * @return {Promise<Task | null>} A promise that resolves to the updated task if successful, or null if the task does not exist.
      */
-    async toggleDone(id: number): Promise<Task | null> {
-        const task = await db.tasks.get(id);
+    async toggleDone(id: number, locale?: any): Promise<Task | null> {
+        let task = await db.tasks.get(id);
         if (!task) {
             return null;
         }
 
-        return await this.update(id, { isDone: !task.isDone, priority: false });
+        const newTask = getTaskDuration(task, locale)
+
+        return await this.update(
+            id,
+            {
+                isDone: !task.isDone,
+                priority: false,
+                isTimerRunning: false,
+                timer: {
+                    ...newTask.timer,
+                }
+            });
     }
 
     /**
