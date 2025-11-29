@@ -156,7 +156,6 @@ export function getTaskDuration(task: Task, locale: any): Task {
             start: new Date,
         }
 
-        console.log(newTask)
         return newTask
     } else {
         newTask.timer = {
@@ -188,7 +187,6 @@ export function getTaskDuration(task: Task, locale: any): Task {
             newTask.timer!.lastSession = formatDuration(Duration.fromMillis(currentDurationMs), locale.value)
 
         }
-        console.log(newTask)
         return newTask
     }
 }

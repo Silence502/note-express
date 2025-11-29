@@ -37,11 +37,47 @@ const description = computed(() => props.task.description ?? undefined)
 
     </div>
     <Divider/>
-    <div class="flex flex-col items-end">
-      <div class="text-content-secondary">{{t('common.idLabel')}} <span class="font-medium">{{settings!.idType === TypeId.GENERATED ? task.idGenerated : `${settings!.prefixId}${task.id}`}}</span></div>
-      <div class="text-content-secondary">{{ t('home.modal.infoTask.createdAt') }}<span class="font-medium">{{DateTime.fromJSDate(task.createdAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED)}}</span></div>
-      <div class="text-content-secondary">{{ t('home.modal.infoTask.endedAt') }}<span class="font-medium">{{DateTime.fromJSDate(task.updatedAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED)}}</span></div>
-      <div class="text-content-secondary">{{ t('home.modal.infoTask.duration') }}<span class="font-medium">{{getIntervalWithDuration(task, locale)}}</span></div>
+    <div class="flex flex-col items-start w-full">
+      <div class="text-content-secondary w-full grid grid-cols-2">
+        <div class="flex justify-start">
+          <div>{{ t('common.idLabel') }}</div>
+        </div>
+        <div class="flex justify-end">
+          <div class="font-medium">{{ settings!.idType === TypeId.GENERATED ? task.idGenerated : `${settings!.prefixId}${task.id}` }}</div>
+        </div>
+      </div>
+      <div class="text-content-secondary w-full grid grid-cols-2">
+        <div class="flex justify-start">
+          <div>{{ t('home.modal.infoTask.createdAt') }}</div>
+        </div>
+        <div class="flex justify-end">
+          <div class="font-medium">{{ DateTime.fromJSDate(task.createdAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED) }}</div>
+        </div>
+      </div>
+      <div class="text-content-secondary w-full grid grid-cols-2">
+        <div class="flex justify-start">
+          <div>{{ t('home.modal.infoTask.endedAt') }}</div>
+        </div>
+        <div class="flex justify-end">
+          <div class="font-medium">{{ DateTime.fromJSDate(task.updatedAt).setLocale(locale).toLocaleString(DateTime.DATETIME_MED) }}</div>
+        </div>
+      </div>
+      <div class="text-content-secondary w-full grid grid-cols-2">
+        <div class="flex justify-start">
+          <div>{{ t('home.modal.infoTask.timeIn') }}</div>
+        </div>
+        <div class="flex justify-end">
+          <span class="font-medium">{{ getIntervalWithDuration(task, locale) }}</span>
+        </div>
+      </div>
+      <div v-if="task.timer && task.timer.duration" class="text-content-secondary w-full grid grid-cols-2">
+        <div class="flex justify-start">
+          <div>{{ t('home.modal.infoTask.duration') }}</div>
+        </div>
+        <div class="flex justify-end">
+          <div class="font-medium">{{ task.timer.duration }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

@@ -185,7 +185,7 @@ const timerHandler = (task: Task) => {
 
 <template>
   <Card class="bordered task-card"
-        :class="{'no-content': task.description === null || !task.description, 'is-done': task.isDone, 'priority': task.priority, '!border-background-warning': task.isTimerRunning }"
+        :class="{'no-content': task.description === null || !task.description, 'is-done': task.isDone, 'priority': task.priority, 'time-border': task.isTimerRunning }"
         :draggable="!task.isDone && !filtered"
         :id="task.id"
         :data-id="task.id"
@@ -257,7 +257,7 @@ const timerHandler = (task: Task) => {
                :value="tag.name"
                :style="{backgroundColor: `#${tag.color}`, color: `${contrastColor(tag.color as string)}`}"/>
 
-          <Tag v-if="getTaskTags().length > 2"
+          <Tag v-if="getTaskTags().length > 4"
                v-tooltip="`${getTaskTagsName.call(this)}`"
                :value="`+${getTaskTags().length - 4}`"
                class="cursor-default"
@@ -265,7 +265,6 @@ const timerHandler = (task: Task) => {
         </div>
         <div>
           <Button :icon="timerIcon"
-                  v-tooltip.top="{value: task.isTimerRunning ? t('common.pause') : tooltipHandler(task), escape: false}"
                   variant="text"
                   :severity="task.isTimerRunning ? 'warn' : 'secondary'"
                   size="small"

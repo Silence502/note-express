@@ -134,3 +134,18 @@ body {
         background-color: var(--p-content-background);
     }
 }
+
+
+/* ANIMATION */
+.time-border {
+    animation: borderColorChange 1.5s infinite alternate;
+}
+
+@keyframes borderColorChange {
+    0% {
+        border-color: var(--p-content-border-color) !important;
+    }
+    100% {
+        border-color: var(--color-background-warning) !important;
+    }
+}

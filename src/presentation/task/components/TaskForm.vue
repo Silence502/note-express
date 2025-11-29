@@ -53,6 +53,10 @@ function changeForm() {
   emit('isFormDirty', isDirty.value)
 }
 
+function resetTimer(task: Task) {
+  emit('update', {id: task.id! as number, task: {...task, timer: undefined}});
+}
+
 </script>
 
 <template>
@@ -98,21 +102,51 @@ function changeForm() {
                    :maxSelectedLabels="2"
                    class="w-full md:w-80"/>
     </FormField>
-    <div v-if="initialTask && useSettingsStore.data" class="text-content-secondary">{{t('common.idLabel')}} <span class="font-medium">{{useSettingsStore.data!.idType === TypeId.GENERATED ? initialTask.idGenerated : `${useSettingsStore.data!.prefixId}${initialTask.id}`}}</span></div>
-    <div class="flex justify-end gap-2">
-      <Button type="button"
-              :loading
+    <div v-if="initialTask">
+      <div v-if="useSettingsStore.data?.displayTaskIds" class="text-content-secondary w-full grid grid-cols-2">
+        <div class="flex justify-start">
+          <div>{{ t('common.idLabel') }}</div>
+        </div>
+        <div class="flex justify-end">
+          <div class="font-medium">{{ useSettingsStore.data!.idType === TypeId.GENERATED ? initialTask.idGenerated : `${useSettingsStore.data!.prefixId}${initialTask.id}` }}</div>
+        </div>
+      </div>
+
+      <div class="text-content-secondary w-full grid grid-cols-2" v-if="initialTask!.timer?.duration">
+        <div class="flex justify-start">
+          <div>Temps d'exécution :</div>
+        </div>
+        <div class="flex justify-end">
+          <div class="font-medium"><i v-if="initialTask!.isTimerRunning" v-tooltip.left="'Tâche en cours d\'exécution'" class="pi pi-stopwatch mr-2 !text-xs text-background-warning" />{{ initialTask!.timer?.duration }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex gap-2">
+      <Button v-if="initialTask && initialTask.timer?.duration"
+              icon="pi pi-refresh"
+              variant="text"
               severity="secondary"
-              @click="resetForm($form)"
-              :aria-label="t('home.modal.createTask.form.button.submit')"
-              :disabled="!$form.title?.dirty && !$form.description?.dirty && !$form.tags?.dirty"
-              :label="t('common.cancel')"/>
-      <Button type="submit"
-              :loading
-              severity="primary"
-              :aria-label="t('home.modal.createTask.form.button.submit')"
-              :disabled="$form.title?.value === null || !$form.valid || loading"
-              :label="t('home.modal.createTask.form.button.submit')"/>
+              :disabled="initialTask.isTimerRunning"
+              rounded
+              :class="{'!cursor-not-allowed': initialTask.isTimerRunning}"
+              v-tooltip.left="initialTask.isTimerRunning ? '' : 'Réinitialiser le compteur'"
+              @click="resetTimer(initialTask)"
+              type="button"/>
+      <div class="flex gap-2 w-full justify-end">
+        <Button type="button"
+                :loading
+                severity="secondary"
+                @click="resetForm($form)"
+                :aria-label="t('home.modal.createTask.form.button.submit')"
+                :disabled="!$form.title?.dirty && !$form.description?.dirty && !$form.tags?.dirty"
+                :label="t('common.cancel')"/>
+        <Button type="submit"
+                :loading
+                severity="primary"
+                :aria-label="t('home.modal.createTask.form.button.submit')"
+                :disabled="$form.title?.value === null || !$form.valid || loading"
+                :label="t('home.modal.createTask.form.button.submit')"/>
+      </div>
     </div>
   </Form>
 </template>

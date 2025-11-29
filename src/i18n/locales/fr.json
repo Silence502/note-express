@@ -76,7 +76,8 @@
       },
       "infoTask": {
         "title": "Informations",
-        "duration": "Durée : {duration}",
+        "duration": "Temps d'exécution : {duration}",
+        "timeIn": "Temps dans la liste : {duration}",
         "createdAt": "Crée le : {date}",
         "endedAt": "Terminée le : {date}"
       },
