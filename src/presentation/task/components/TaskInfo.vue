@@ -9,8 +9,10 @@ import Tag from "primevue/tag";
 import Divider from "primevue/divider";
 import {getIntervalWithDuration} from "@/utils/common.ts";
 import {TypeId, type UserSettings} from "@/infrastructure/schemas/settings.schema.ts";
+import {settingsStore} from "@/stores/settingsStore.ts";
 
 const {t, locale} = useI18n();
+const useSettingsStore = settingsStore()
 
 const props = withDefaults(defineProps<{
   task: Task;
@@ -38,7 +40,7 @@ const description = computed(() => props.task.description ?? undefined)
     </div>
     <Divider/>
     <div class="flex flex-col items-start w-full">
-      <div class="text-content-secondary w-full grid grid-cols-2">
+      <div  v-if="useSettingsStore.data?.displayTaskIds" class="text-content-secondary w-full grid grid-cols-2">
         <div class="flex justify-start">
           <div>{{ t('common.idLabel') }}</div>
         </div>

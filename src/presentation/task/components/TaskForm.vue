@@ -114,7 +114,8 @@ function resetTimer(task: Task) {
 
       <div class="text-content-secondary w-full grid grid-cols-2" v-if="initialTask!.timer?.duration">
         <div class="flex justify-start">
-          <div>Temps d'exécution :</div>
+          <div v-if="!initialTask.isTimerRunning">Temps d'exécution :</div>
+          <div v-else>Dernière session :</div>
         </div>
         <div class="flex justify-end">
           <div class="font-medium"><i v-if="initialTask!.isTimerRunning" v-tooltip.left="'Tâche en cours d\'exécution'" class="pi pi-stopwatch mr-2 !text-xs text-background-warning" />{{ initialTask!.timer?.duration }}</div>

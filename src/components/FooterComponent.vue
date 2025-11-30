@@ -40,7 +40,7 @@ const visibleRight = ref(false);
     </div>
   </footer>
 
-  <Drawer v-model:visible="visibleRight" :header="t('settings.title')" position="bottom" class="!h-fit">
+  <Drawer v-model:visible="visibleRight" :header="t('settings.title')" position="left" class="!h-full !w-full">
     <SettingsPanel @close="visibleRight = false"/>
   </Drawer>
 </template>

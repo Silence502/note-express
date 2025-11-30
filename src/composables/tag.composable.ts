@@ -7,7 +7,7 @@ import {useToast} from "primevue/usetoast";
 import {useI18n} from "vue-i18n";
 
 export function useTag() {
-    const {t, locale} = useI18n();
+    const {t} = useI18n();
     const toast = useToast();
     const {
         tasks,
@@ -36,7 +36,7 @@ export function useTag() {
      * @returns {Promise<void>} Resolves when tasks are successfully loaded, or sets an error state if loading fails.
      */
     const loadTags = async (filters?: { isDone?: boolean; tasks?: Task[]; search?: string }): Promise<void> => {
-        isListLoading.value = true;
+        // isListLoading.value = true;
         error.value = null;
         try {
             // Valider et nettoyer les filtres avant de les envoyer
