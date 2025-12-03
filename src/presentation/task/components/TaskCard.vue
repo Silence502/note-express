@@ -265,6 +265,7 @@ const timerHandler = (task: Task) => {
         </div>
         <div>
           <Button :icon="timerIcon"
+                  v-if="useSettingsStore.data?.displayTimer"
                   variant="text"
                   :severity="task.isTimerRunning ? 'warn' : 'secondary'"
                   size="small"

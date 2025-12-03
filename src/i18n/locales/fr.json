@@ -281,6 +281,10 @@
           "info": "ID unique de 9 caractères généré sur la base de chiffres et de lettres."
         }
       }
+    },
+    "timerHeader": "Chronomètre",
+    "displayTimer": {
+      "label": "Activer le chronomètre"
     }
   },
   "change-log": {

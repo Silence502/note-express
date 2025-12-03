@@ -100,8 +100,23 @@ const isDisplayIdChecked = computed({
   }
 });
 
+const isDisplayTimerChecked = computed({
+  get: () => settings.value?.displayTimer || false,
+  set: async (newValue: boolean) => {
+    if (settings.value) {
+      await updateSettings(settings.value.id, {displayTimer: newValue});
+      await loadSettings(settings.value.id);
+      emitterUpdate();
+    }
+  }
+})
+
 const handleDisplayIdChange = () => {
   isDisplayIdChecked.value = !isDisplayIdChecked.value;
+}
+
+const handleDisplayTimerChange = () => {
+  isDisplayTimerChecked.value = !isDisplayTimerChecked.value;
 }
 
 const options = computed(() => {
@@ -253,7 +268,19 @@ onMounted(() => {
       </Panel>
 
       <Panel header="Chronomètre">
-
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-row gap-2 items-center" v-if="settingsValue">
+            <ToggleSwitch
+                id="display-timer-switch"
+                :model-value="isDisplayTimerChecked"
+                @update:model-value="handleDisplayTimerChange">
+              <template #handle="{ checked }">
+                <i :class="['!text-xs pi', { 'pi-check': checked, 'pi-times': !checked }]"/>
+              </template>
+            </ToggleSwitch>
+            <label for="display-timer-switch">{{ t('settings.displayTimer.label') }}</label>
+          </div>
+        </div>
       </Panel>
     </template>
   </SectionLayout>
