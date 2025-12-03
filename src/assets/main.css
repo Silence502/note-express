@@ -17,6 +17,8 @@
     --color-content-information: var(--p-primary-800);
 
     --color-border-alert: var(--p-red-600);
+
+    --breakpoint-xs: 350px;
 }
 
 @layer theme {
