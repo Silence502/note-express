@@ -138,43 +138,54 @@ onMounted(() => {
 </script>
 
 <template>
-  <HeaderComponent :title="'Paramètres'">
+  <HeaderComponent :title="t('settings.title')">
     <template #content>
       <div class="flex items-center gap-2">
-        <h3>Configurez votre extension</h3>
+        <h3>{{ t('settings.subTitle') }}</h3>
       </div>
     </template>
   </HeaderComponent>
   <SectionLayout>
     <template #content>
-      <Panel header="Paramètres généraux">
+      <Panel :header="t('settings.generalHeader')">
         <div class="flex flex-col gap-4">
           <div class="flex flex-row gap-2 justify-between items-center">
-            <InputGroup class="!w-[140px]">
-              <InputGroupAddon>
-                <i class="pi pi-globe"></i>
-              </InputGroupAddon>
-              <Select v-model="selectedLocale"
-                      :options="locales"
-                      @valueChange="isTypeIdChange"
-                      size="small"
-                      optionLabel="name"
-                      optionValue="code"
-                      :placeholder="t('settings.locale.placeholder')"
-                      class="md:w-56"
-                      @change="changeLocale(selectedLocale)"/>
-            </InputGroup>
-            <div class="flex flex-row gap-1">
-              <input
-                  type="file"
-                  accept=".csv"
-                  @change="handleFileImport"
-                  hidden
-                  ref="fileInput"
-              />
-              <Button severity="secondary" variant="text" icon="pi pi-file-import" @click="fileInput?.click()"/>
-              <Button severity="secondary" variant="text" icon="pi pi-file-export"
-                      @click="exportToCSV(useTasksStore.data)"/>
+            <div class="flex flex-col gap-2">
+              <label>{{ t('settings.locale.label') }}</label>
+              <InputGroup class="!w-[140px]">
+                <InputGroupAddon>
+                  <i class="pi pi-globe"></i>
+                </InputGroupAddon>
+                <Select v-model="selectedLocale"
+                        :options="locales"
+                        @valueChange="isTypeIdChange"
+                        size="small"
+                        optionLabel="name"
+                        optionValue="code"
+                        :placeholder="t('settings.locale.placeholder')"
+                        class="md:w-56"
+                        @change="changeLocale(selectedLocale)"/>
+              </InputGroup>
+            </div>
+            <div class="flex flex-col gap-2">
+              <div class="flex flex-row gap-1 items-center">
+                <label>{{ t('settings.importExport.label') }}</label>
+                <i v-tooltip.left="t('settings.importExport.help')" class="!text-xs ml-1 pi pi-info-circle"/>
+              </div>
+              <div class="flex flex-row gap-1">
+                <input
+                    type="file"
+                    accept=".csv"
+                    @change="handleFileImport"
+                    hidden
+                    ref="fileInput"
+                />
+                <Button v-tooltip.top="t('settings.importExport.importTooltip')" severity="secondary" variant="text"
+                        icon="pi pi-file-import" @click="fileInput?.click()"/>
+                <Button v-tooltip.top="t('settings.importExport.exportTooltip')" severity="secondary" variant="text"
+                        icon="pi pi-file-export"
+                        @click="exportToCSV(useTasksStore.data)"/>
+              </div>
             </div>
           </div>
           <router-link to="/change-log" @click="$emit('close')" class="!text-xs">{{ version }}</router-link>

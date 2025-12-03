@@ -250,6 +250,14 @@
   },
   "settings": {
     "title": "Paramètres",
+    "subTitle": "Configurez votre extension",
+    "generalHeader": "Paramètres généraux",
+    "importExport": {
+      "label": "Import / export",
+      "importTooltip": "Importer",
+      "exportTooltip": "Exporter",
+      "help": "Exportez ou importez toutes les tâches et tags."
+    },
     "locale": {
       "placeholder": "Langue",
       "label": "Langue"
