@@ -174,9 +174,9 @@ const onDragOver = (e: DragEvent) => {
 
   if (cardElement.classList.contains('drag-over')) return;
 
-  document.querySelectorAll('.drag-over').forEach(el => {
-    el.classList.remove('drag-over');
-  });
+  // document.querySelectorAll('.drag-over').forEach(el => {
+  //   el.classList.remove('drag-over');
+  // });
 
   cardElement.classList.add('drag-over');
 }
@@ -184,6 +184,10 @@ const onDragOver = (e: DragEvent) => {
 const onDragLeave = (e: DragEvent) => {
   const target = e.target as HTMLElement;
   const cardElement = target.closest<HTMLElement>('[data-id]');
+
+  document.querySelectorAll('.drag-over').forEach(el => {
+    el.classList.remove('drag-over');
+  });
 
   if (!cardElement?.dataset?.id) return;
 
